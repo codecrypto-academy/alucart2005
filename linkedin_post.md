@@ -4,6 +4,6 @@
 
 Esta app es perfecta para usuarios finales que buscan aplicaciones prácticas: autentica contratos legales, verifica certificados académicos, confirma propiedad de activos digitales y previene fraudes en documentos. Imagina un mundo donde la falsificación sea cosa del pasado, gracias a la inmutabilidad de la blockchain. 💡
 
-¿Quieres probarla? Descarga el código fuente desde nuestro [repositorio en GitHub](https://github.com/alucart2005/documentSighHash), accede a la [demo interactiva](https://demo-alucart2005.vercel.app) o explora el proyecto en vivo. ¡Es fácil, gratuito y abierto a contribuciones!
+¿Quieres probarla? Descarga el código fuente desde nuestro [repositorio en GitHub](https://github.com/alucart2005/documentSighHash) ¡Es fácil, gratuito y abierto a contribuciones!
 
 Únete a la revolución Web3: conéctate conmigo en LinkedIn, comparte tus experiencias y ayúdanos a construir un futuro más seguro. ¿Qué opinas? ¡Comentarios abajo! 👇 #Web3 #Blockchain #Ethereum #Innovación #DesarrolloDescentralizado
