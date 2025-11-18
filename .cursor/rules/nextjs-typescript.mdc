@@ -1,0 +1,65 @@
+---
+globs: *.ts,*.tsx
+---
+
+# Next.js, TypeScript & React Guidelines
+
+## Project Configuration
+
+- Next.js 16 with App Router architecture
+- TypeScript with strict mode enabled (see [tsconfig.json](mdc:dapp/tsconfig.json))
+- React 19 with React Server Components
+- Tailwind CSS 4 for styling
+- Path aliases: `@/*` maps to `dapp/*`
+
+## Code Standards
+
+- Use TypeScript strict mode - always type your variables and function parameters
+- Prefer functional components with hooks
+- Use React Server Components by default (no 'use client' unless needed)
+- Add 'use client' directive only when using browser APIs, hooks, or event handlers
+
+## File Structure
+
+- Pages/components in `app/` directory following Next.js App Router conventions
+- Use `page.tsx` for route pages
+- Use `layout.tsx` for shared layouts
+- Static assets in `public/` directory
+
+## Styling Guidelines
+
+- Use Tailwind CSS utility classes
+- Support dark mode with `dark:` prefix
+- Follow responsive design patterns: mobile-first approach
+- Use semantic HTML elements
+
+## TypeScript Best Practices
+
+- Define interfaces/types for props and data structures
+- Avoid `any` type - use `unknown` if type is truly unknown
+- Use type inference where appropriate
+- Export types/interfaces when reused
+
+## Component Patterns
+
+```typescript
+// Server Component (default)
+export default function Component() {
+  return <div>Content</div>;
+}
+
+// Client Component (when needed)
+("use client");
+import { useState } from "react";
+export default function InteractiveComponent() {
+  const [state, setState] = useState(0);
+  return <button onClick={() => setState(state + 1)}>{state}</button>;
+}
+```
+
+## Web3 Integration (Future)
+
+- When integrating Web3, use libraries like ethers.js, viem, or wagmi
+- Always handle wallet connection errors gracefully
+- Show loading states during blockchain transactions
+- Display transaction status and confirmations

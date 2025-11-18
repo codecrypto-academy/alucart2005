@@ -1,0 +1,38 @@
+---
+alwaysApply: true
+---
+
+# Project Structure Guide
+
+This is a blockchain/Web3 Ethereum practice project combining smart contract development with a decentralized application frontend.
+
+## Project Layout
+
+- **`sc/`** - Smart contracts directory (Foundry project)
+
+  - [foundry.toml](mdc:sc/foundry.toml) - Foundry configuration
+  - `src/` - Source Solidity contracts (e.g., [Counter.sol](mdc:sc/src/Counter.sol))
+  - `test/` - Test files (e.g., [Counter.t.sol](mdc:sc/test/Counter.t.sol))
+  - `script/` - Deployment scripts (e.g., [Counter.s.sol](mdc:sc/script/Counter.s.sol))
+  - `lib/` - Dependencies (forge-std)
+
+- **`dapp/`** - Next.js decentralized application frontend
+  - [package.json](mdc:dapp/package.json) - Node.js dependencies and scripts
+  - [tsconfig.json](mdc:dapp/tsconfig.json) - TypeScript configuration
+  - `app/` - Next.js App Router directory
+    - [page.tsx](mdc:dapp/app/page.tsx) - Main page component
+    - [layout.tsx](mdc:dapp/app/layout.tsx) - Root layout
+  - `public/` - Static assets
+
+## Key Technologies
+
+- **Smart Contracts**: Solidity ^0.8.13, Foundry framework
+- **Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS 4
+- **Testing**: Foundry's testing framework with forge-std
+
+## Development Workflow
+
+1. Smart contracts are developed in `sc/` using Foundry
+2. Frontend is developed in `dapp/` using Next.js
+3. Contracts are tested in `sc/test/` before integration
+4. Frontend connects to deployed contracts via Web3 libraries

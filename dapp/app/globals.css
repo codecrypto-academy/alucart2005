@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* Color Palette - Natural Greens and Blues */
+@theme inline {
+  /* Mindaro - Light yellow-green for backgrounds and accents */
+  --color-mindaro-100: #36420b;
+  --color-mindaro-200: #6c8415;
+  --color-mindaro-300: #a2c520;
+  --color-mindaro-400: #c3e250;
+  --color-mindaro: #d9ed92;
+  --color-mindaro-500: #d9ed92;
+  --color-mindaro-600: #e1f1a7;
+  --color-mindaro-700: #e8f4bd;
+  --color-mindaro-800: #f0f8d3;
+  --color-mindaro-900: #f7fbe9;
+
+  /* Light Green (first) - Fresh green tones */
+  --color-light-green-100: #233b0e;
+  --color-light-green-200: #46771c;
+  --color-light-green-300: #6ab22a;
+  --color-light-green-400: #8ed650;
+  --color-light-green: #b5e48c;
+  --color-light-green-500: #b5e48c;
+  --color-light-green-600: #c4e9a2;
+  --color-light-green-700: #d2efba;
+  --color-light-green-800: #e1f4d1;
+  --color-light-green-900: #f0fae8;
+
+  /* Light Green (second) - Softer green */
+  --color-light-green-2-100: #183612;
+  --color-light-green-2-200: #306b24;
+  --color-light-green-2-300: #47a136;
+  --color-light-green-2-400: #69c757;
+  --color-light-green-2: #99d98c;
+  --color-light-green-2-500: #99d98c;
+  --color-light-green-2-600: #ade0a3;
+  --color-light-green-2-700: #c2e8ba;
+  --color-light-green-2-800: #d6f0d1;
+  --color-light-green-2-900: #ebf7e8;
+
+  /* Emerald - Vibrant green for primary actions */
+  --color-emerald-100: #122d1c;
+  --color-emerald-200: #245a37;
+  --color-emerald-300: #368853;
+  --color-emerald-400: #48b56e;
+  --color-emerald: #76c893;
+  --color-emerald-500: #76c893;
+  --color-emerald-600: #90d3a7;
+  --color-emerald-700: #acdebd;
+  --color-emerald-800: #c8e9d3;
+  --color-emerald-900: #e3f4e9;
+
+  /* Keppel - Teal-green transition */
+  --color-keppel-100: #10251f;
+  --color-keppel-200: #1f4b3e;
+  --color-keppel-300: #2f705e;
+  --color-keppel-400: #3f967d;
+  --color-keppel: #52b69a;
+  --color-keppel-500: #52b69a;
+  --color-keppel-600: #75c5ae;
+  --color-keppel-700: #97d4c3;
+  --color-keppel-800: #bae2d7;
+  --color-keppel-900: #dcf1eb;
+
+  /* Verdigris - Blue-green accent */
+  --color-verdigris-100: #0a2021;
+  --color-verdigris-200: #154041;
+  --color-verdigris-300: #1f5f62;
+  --color-verdigris-400: #297f82;
+  --color-verdigris: #34a0a4;
+  --color-verdigris-500: #34a0a4;
+  --color-verdigris-600: #4bc2c6;
+  --color-verdigris-700: #78d1d4;
+  --color-verdigris-800: #a5e1e3;
+  --color-verdigris-900: #d2f0f1;
+
+  /* Bondi Blue - Bright blue for links and highlights */
+  --color-bondi-blue-100: #041b22;
+  --color-bondi-blue-200: #093745;
+  --color-bondi-blue-300: #0d5267;
+  --color-bondi-blue-400: #126d89;
+  --color-bondi-blue: #168aad;
+  --color-bondi-blue-500: #168aad;
+  --color-bondi-blue-600: #1fb4e2;
+  --color-bondi-blue-700: #57c7e9;
+  --color-bondi-blue-800: #8fdaf0;
+  --color-bondi-blue-900: #c7ecf8;
+
+  /* Cerulean - Medium blue */
+  --color-cerulean-100: #051720;
+  --color-cerulean-200: #0a2e3f;
+  --color-cerulean-300: #0f465f;
+  --color-cerulean-400: #155d7e;
+  --color-cerulean: #1a759f;
+  --color-cerulean-500: #1a759f;
+  --color-cerulean-600: #239dd6;
+  --color-cerulean-700: #57b7e4;
+  --color-cerulean-800: #8fcfed;
+  --color-cerulean-900: #c7e7f6;
+
+  /* Lapis Lazuli - Rich blue */
+  --color-lapis-lazuli-100: #06131d;
+  --color-lapis-lazuli-200: #0c263a;
+  --color-lapis-lazuli-300: #123956;
+  --color-lapis-lazuli-400: #184b73;
+  --color-lapis-lazuli: #1e6091;
+  --color-lapis-lazuli-500: #1e6091;
+  --color-lapis-lazuli-600: #2983c8;
+  --color-lapis-lazuli-700: #57a3dd;
+  --color-lapis-lazuli-800: #8fc2e8;
+  --color-lapis-lazuli-900: #c7e0f4;
+
+  /* Indigo Dye - Deep blue for text and borders */
+  --color-indigo-dye-100: #051018;
+  --color-indigo-dye-200: #0a1f2f;
+  --color-indigo-dye-300: #0f2f47;
+  --color-indigo-dye-400: #133e5f;
+  --color-indigo-dye: #184e77;
+  --color-indigo-dye-500: #184e77;
+  --color-indigo-dye-600: #2576b3;
+  --color-indigo-dye-700: #489bda;
+  --color-indigo-dye-800: #85bce6;
+  --color-indigo-dye-900: #c2def3;
+
+  /* Background and foreground colors */
+  --color-background: #f7fbe9; /* mindaro-900 - lightest background */
+  --color-foreground: #184e77; /* indigo-dye - dark text */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  @theme inline {
+    --color-background: #051018; /* indigo-dye-100 - dark background */
+    --color-foreground: #e3f4e9; /* emerald-900 - light text */
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}

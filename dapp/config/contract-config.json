@@ -1,0 +1,7 @@
+{
+  "contractAddress": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+  "rpcUrl": "http://localhost:8545",
+  "network": "anvil",
+  "chainId": 31337,
+  "deployedAt": "2025-11-17T16:17:13.140Z"
+}

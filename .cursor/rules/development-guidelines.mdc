@@ -1,0 +1,79 @@
+---
+description: General development guidelines and best practices for this blockchain project
+---
+
+# Development Guidelines
+
+## General Principles
+
+- Write clean, maintainable, and well-documented code
+- Follow the existing code patterns and structure
+- Test thoroughly before committing changes
+- Update documentation when adding new features
+
+## Smart Contract Development
+
+### Before Writing Contracts
+
+1. Plan the contract architecture and data structures
+2. Consider gas optimization and security implications
+3. Review similar contracts or standards (ERC-20, ERC-721, etc.)
+
+### Testing Requirements
+
+- Write comprehensive tests in `sc/test/` for all contracts
+- Include both unit tests and fuzz tests where appropriate
+- Test edge cases and error conditions
+- Run `forge test` before committing
+
+### Deployment
+
+- Use deployment scripts in `sc/script/`
+- Test on local networks (anvil) before mainnet
+- Verify contracts on block explorers after deployment
+
+## Frontend Development
+
+### Before Writing Components
+
+1. Plan the component structure and data flow
+2. Consider user experience and accessibility
+3. Design responsive layouts for mobile and desktop
+
+### Code Quality
+
+- Run `npm run lint` before committing
+- Ensure TypeScript compiles without errors
+- Test components in different browsers
+- Optimize images and assets
+
+### Web3 Integration
+
+- Always handle wallet disconnection gracefully
+- Show clear error messages for failed transactions
+- Implement proper loading states
+- Consider transaction confirmation times
+
+## Git Workflow
+
+- Create feature branches for new work
+- Write descriptive commit messages
+- Keep commits focused and atomic
+- Test before pushing to remote
+
+## Documentation
+
+- Update [README.md](mdc:README.md) when adding major features
+- Comment complex logic in code
+- Document API changes in contract interfaces
+- Include usage examples for new features
+
+## Security Checklist
+
+- [ ] Smart contracts have input validation
+- [ ] No hardcoded private keys or secrets
+- [ ] Error handling for all external calls
+- [ ] Gas optimization considered
+- [ ] Reentrancy protection where needed
+- [ ] Frontend validates user inputs
+- [ ] Sensitive data not exposed in client-side code

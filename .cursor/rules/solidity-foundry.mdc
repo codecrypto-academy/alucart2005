@@ -1,0 +1,54 @@
+---
+globs: *.sol
+---
+
+# Solidity & Foundry Development Guidelines
+
+## Code Standards
+
+- Always include SPDX license identifier at the top: `// SPDX-License-Identifier: UNLICENSED` or appropriate license
+- Use pragma `^0.8.13` or compatible version
+- Follow Solidity style guide: https://docs.soliditylang.org/en/latest/style-guide.html
+
+## Foundry Best Practices
+
+- Import from forge-std: `import {Test} from "forge-std/Test.sol";`
+- Test files should end with `.t.sol` (e.g., [Counter.t.sol](mdc:sc/test/Counter.t.sol))
+- Script files should end with `.s.sol` (e.g., [Counter.s.sol](mdc:sc/script/Counter.s.sol))
+- Use `setUp()` function in tests to initialize contracts
+- Test function names should start with `test_` for regular tests or `testFuzz_` for fuzz tests
+- Use `assertEq()`, `assertTrue()`, etc. from forge-std for assertions
+
+## Security Considerations
+
+- Always validate inputs in public/external functions
+- Use `require()` statements for input validation
+- Be aware of reentrancy risks
+- Consider gas optimization but prioritize security
+- Use SafeMath patterns or rely on Solidity 0.8+ built-in overflow protection
+
+## Contract Structure
+
+- State variables should be declared with appropriate visibility
+- Functions should have explicit visibility modifiers (public, external, internal, private)
+- Use events for important state changes
+- Document complex logic with comments
+
+## Example Contract Pattern
+
+```solidity
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Example {
+    uint256 public value;
+
+    event ValueChanged(uint256 newValue);
+
+    function setValue(uint256 _value) public {
+        require(_value > 0, "Value must be greater than 0");
+        value = _value;
+        emit ValueChanged(_value);
+    }
+}
+```
