@@ -1,4 +1,4 @@
-# FileHashStorage dApp - Documentación del Frontend
+# FileHashStorage dApp - Frontend Documentation
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![React](https://img.shields.io/badge/React-19-blue)
@@ -6,138 +6,146 @@
 ![Ethers.js](https://img.shields.io/badge/Ethers.js-6-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-Una aplicación descentralizada (dApp) moderna y lista para producción para la verificación de documentos en la blockchain de Ethereum. Construida con Next.js 16, React 19 y TypeScript, esta aplicación proporciona una interfaz fluida para almacenar y verificar hashes de documentos con firmas criptográficas.
+<div align="center">
 
-## 📋 Tabla de Contenidos
+**🌐 Language / Idioma / Idioma**
 
-- [Descripción del Proyecto](#-descripción-del-proyecto)
-- [Características Principales](#-características-principales)
-- [Instalación](#-instalación)
-- [Configuración](#-configuración)
-- [Instrucciones de Uso](#-instrucciones-de-uso)
-- [Integración de API](#-integración-de-api)
-- [Escenarios del Mundo Real](#-escenarios-del-mundo-real)
-- [Guías de Despliegue](#-guías-de-despliegue)
-- [Arquitectura](#-arquitectura)
-- [Contribución](#-contribución)
-- [Solución de Problemas](#-solución-de-problemas)
+[![English](https://img.shields.io/badge/English-🇬🇧-blue)](README.md) [![Spanish](https://img.shields.io/badge/Spanish-🇪🇸-red)](README.es.md) [![Portuguese](https://img.shields.io/badge/Portuguese-🇵🇹-green)](README.pt.md)
 
-## 🎯 Descripción del Proyecto
+</div>
 
-FileHashStorage dApp es una aplicación del lado del cliente que permite a los usuarios:
+A modern, production-ready decentralized application (dApp) frontend for document verification on the Ethereum blockchain. Built with Next.js 16, React 19, and TypeScript, this application provides a seamless interface for storing and verifying document hashes with cryptographic signatures.
 
-- **Almacenar hashes de documentos** en la blockchain de Ethereum con firmas criptográficas
-- **Verificar la autenticidad de documentos** comparando hashes de archivos con registros de blockchain
-- **Rastrear el historial de documentos** con timestamps inmutables e información del firmante
-- **Gestionar múltiples wallets** con un selector de wallet integrado para pruebas y desarrollo
+## 📋 Table of Contents
 
-### Casos de Uso
+- [Project Overview](#-project-overview)
+- [Key Features](#-key-features)
+- [Installation](#-installation)
+- [Setup & Configuration](#-setup--configuration)
+- [Usage Instructions](#-usage-instructions)
+- [API Integration](#-api-integration)
+- [Real-World Scenarios](#-real-world-scenarios)
+- [Deployment Guidelines](#-deployment-guidelines)
+- [Architecture](#-architecture)
+- [Contributing](#-contributing)
+- [Troubleshooting](#-troubleshooting)
 
-Esta dApp está diseñada para aplicaciones prácticas en:
+## 🎯 Project Overview
 
-- **E-commerce**: Verificar certificados de productos, garantías y documentos de autenticidad
-- **Finanzas**: Almacenar y verificar documentos financieros, contratos y registros de cumplimiento
-- **Legal**: Timestamp de documentos legales y contratos con prueba criptográfica
-- **Educación**: Verificar credenciales académicas y certificados
-- **Salud**: Almacenamiento seguro de registros médicos y formularios de consentimiento
-- **Cadena de Suministro**: Rastrear y verificar documentación de productos y certificaciones
+FileHashStorage dApp is a client-side application that enables users to:
 
-## ✨ Características Principales
+- **Store document hashes** on the Ethereum blockchain with cryptographic signatures
+- **Verify document authenticity** by comparing file hashes against blockchain records
+- **Track document history** with immutable timestamps and signer information
+- **Manage multiple wallets** with an integrated wallet selector for testing and development
 
-### 🔐 Seguridad y Autenticación
+### Use Cases
 
-- **Firmas ECDSA**: Todos los documentos se firman usando el esquema de firma estándar de Ethereum
-- **Hashing SHA-256**: Hashing criptográfico estándar de la industria para integridad de documentos
-- **Integración de Wallets**: Soporte para múltiples wallets de prueba con cambio fluido
-- **Verificación de Firmas**: Verificación en tiempo real de la autenticidad de documentos
+This dApp is designed for practical applications in:
 
-### 🎨 Experiencia de Usuario
+- **E-commerce**: Verify product certificates, warranties, and authenticity documents
+- **Finance**: Store and verify financial documents, contracts, and compliance records
+- **Legal**: Timestamp legal documents and contracts with cryptographic proof
+- **Education**: Verify academic credentials and certificates
+- **Healthcare**: Secure storage of medical records and consent forms
+- **Supply Chain**: Track and verify product documentation and certifications
 
-- **UI Moderna**: Construida con Tailwind CSS 4 para diseño responsivo y accesible
-- **Actualizaciones en Tiempo Real**: Lista de documentos en vivo con escuchadores de eventos de blockchain
-- **Manejo de Errores**: Diálogos de error completos con soluciones accionables
-- **Estados de Carga**: Retroalimentación clara durante transacciones de blockchain
-- **Modo Oscuro**: Soporte completo para temas oscuros y claros
+## ✨ Key Features
 
-### 🛠️ Experiencia del Desarrollador
+### 🔐 Security & Authentication
 
-- **TypeScript**: Seguridad de tipos completa en toda la aplicación
-- **Context API**: Gestión de estado centralizada para datos de wallet y documentos
-- **Hooks Personalizados**: Hooks reutilizables para interacción con contratos y configuración
-- **Despliegue Automatizado**: Scripts para despliegue fluido de contratos
-- **Hot Reload**: Desarrollo rápido con reemplazo de módulos en caliente de Next.js
+- **ECDSA Signatures**: All documents are signed using Ethereum's standard signature scheme
+- **SHA-256 Hashing**: Industry-standard cryptographic hashing for document integrity
+- **Wallet Integration**: Support for multiple test wallets with seamless switching
+- **Signature Verification**: Real-time verification of document authenticity
 
-## 🚀 Instalación
+### 🎨 User Experience
 
-### Prerrequisitos
+- **Modern UI**: Built with Tailwind CSS 4 for responsive, accessible design
+- **Real-time Updates**: Live document list with blockchain event listeners
+- **Error Handling**: Comprehensive error dialogs with actionable solutions
+- **Loading States**: Clear feedback during blockchain transactions
+- **Dark Mode**: Full support for dark and light themes
 
-Antes de instalar, asegúrate de tener:
+### 🛠️ Developer Experience
 
-- **Node.js** v18 o superior ([Descargar](https://nodejs.org/))
-- **npm** o **yarn** como gestor de paquetes
-- **Foundry** instalado ([Guía de Instalación](https://book.getfoundry.sh/getting-started/installation))
-- **Anvil** (incluido con Foundry) para desarrollo de blockchain local
+- **TypeScript**: Full type safety throughout the application
+- **Context API**: Centralized state management for wallet and document data
+- **Custom Hooks**: Reusable hooks for contract interaction and configuration
+- **Automated Deployment**: Scripts for seamless contract deployment
+- **Hot Reload**: Fast development with Next.js hot module replacement
 
-### Instalación Paso a Paso
+## 🚀 Installation
 
-1. **Navegar al directorio dApp**:
+### Prerequisites
+
+Before installing, ensure you have:
+
+- **Node.js** v18 or higher ([Download](https://nodejs.org/))
+- **npm** or **yarn** package manager
+- **Foundry** installed ([Installation Guide](https://book.getfoundry.sh/getting-started/installation))
+- **Anvil** (included with Foundry) for local blockchain development
+
+### Step-by-Step Installation
+
+1. **Navigate to the dApp directory**:
 
    ```bash
    cd dapp
    ```
 
-2. **Instalar dependencias**:
+2. **Install dependencies**:
 
    ```bash
    npm install
    ```
 
-3. **Verificar instalación**:
+3. **Verify installation**:
 
    ```bash
    npm run check-anvil
    ```
 
-   Este comando verifica si Anvil está corriendo. Si no, necesitarás iniciarlo (ver [Configuración](#-configuración)).
+   This command checks if Anvil is running. If not, you'll need to start it (see [Setup & Configuration](#-setup--configuration)).
 
-## ⚙️ Configuración
+## ⚙️ Setup & Configuration
 
-### Iniciar la Blockchain Local
+### Starting the Local Blockchain
 
-La aplicación requiere que Anvil (nodo Ethereum local) esté corriendo. Tienes dos opciones:
+The application requires Anvil (local Ethereum node) to be running. You have two options:
 
-#### Opción 1: Inicio Manual
+#### Option 1: Manual Start
 
 ```bash
-# En una terminal separada
+# In a separate terminal
 cd ../sc
 anvil
 ```
 
-Anvil se iniciará en `http://localhost:8545` con 10 cuentas de prueba prefinanciadas.
+Anvil will start on `http://localhost:8545` with 10 pre-funded test accounts.
 
-#### Opción 2: Despliegue Automatizado
+#### Option 2: Automated Deployment
 
-La aplicación incluye un script de despliegue automatizado que:
+The application includes an automated deployment script that:
 
-- Verifica si Anvil está corriendo
-- Inicia Anvil si es necesario
-- Despliega el contrato automáticamente
-- Actualiza archivos de configuración
+- Checks if Anvil is running
+- Starts Anvil if needed
+- Deploys the contract automatically
+- Updates configuration files
 
 ```bash
 npm run deploy
 ```
 
-### Configuración del Contrato
+### Contract Configuration
 
-La dirección del contrato se configura automáticamente durante el despliegue. La configuración se almacena en:
+The contract address is automatically configured during deployment. The configuration is stored in:
 
 ```
 dapp/config/contract-config.json
 ```
 
-Ejemplo de configuración:
+Example configuration:
 
 ```json
 {
@@ -149,39 +157,39 @@ Ejemplo de configuración:
 }
 ```
 
-### Variables de Entorno (Opcional)
+### Environment Variables (Optional)
 
-Crea un archivo `.env.local` en el directorio `dapp` para configuración personalizada:
+Create a `.env.local` file in the `dapp` directory for custom configuration:
 
 ```env
-NEXT_PUBLIC_CONTRACT_ADDRESS=0xTuDireccionDelContrato
+NEXT_PUBLIC_CONTRACT_ADDRESS=0xYourContractAddress
 NEXT_PUBLIC_ANVIL_RPC_URL=http://localhost:8545
 NEXT_PUBLIC_CHAIN_ID=31337
 ```
 
-### Iniciar el Servidor de Desarrollo
+### Starting the Development Server
 
 ```bash
 npm run dev
 ```
 
-La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
-El script de despliegue se ejecuta automáticamente antes de iniciar el servidor de desarrollo (mediante el hook `predev`).
+The deployment script runs automatically before starting the dev server (via `predev` hook).
 
-## 💻 Instrucciones de Uso
+## 💻 Usage Instructions
 
-### Flujo de Trabajo Básico
+### Basic Workflow
 
-1. **Conectar Wallet**: La aplicación se conecta automáticamente a Anvil y carga 10 wallets de prueba
-2. **Seleccionar Wallet**: Elige del menú desplegable para cambiar entre cuentas de prueba
-3. **Subir Documento**: Selecciona un archivo para calcular su hash
-4. **Firmar y Almacenar**: Firma el hash con tu wallet y almacénalo en la blockchain
-5. **Verificar Documento**: Sube cualquier archivo para verificar si está almacenado en la blockchain
+1. **Connect Wallet**: The application automatically connects to Anvil and loads 10 test wallets
+2. **Select Wallet**: Choose from the dropdown to switch between test accounts
+3. **Upload Document**: Select a file to calculate its hash
+4. **Sign & Store**: Sign the hash with your wallet and store it on the blockchain
+5. **Verify Document**: Upload any file to verify if it's stored in the blockchain
 
-### Ejemplos de Código
+### Code Examples
 
-#### Usando el Contexto de Wallet
+#### Using the Wallet Context
 
 ```typescript
 import { useWallet } from "@/contexts/WalletContext";
@@ -190,19 +198,19 @@ function MyComponent() {
   const { currentWallet, contract, isConnected, selectWallet } = useWallet();
 
   if (!isConnected) {
-    return <div>Conectando a la blockchain...</div>;
+    return <div>Connecting to blockchain...</div>;
   }
 
   return (
     <div>
-      <p>Wallet Actual: {currentWallet?.address}</p>
-      <button onClick={() => selectWallet(1)}>Cambiar a Wallet 2</button>
+      <p>Current Wallet: {currentWallet?.address}</p>
+      <button onClick={() => selectWallet(1)}>Switch to Wallet 2</button>
     </div>
   );
 }
 ```
 
-#### Calculando el Hash de un Archivo
+#### Calculating File Hash
 
 ```typescript
 import { calculateFileHash } from "@/lib/utils";
@@ -210,15 +218,15 @@ import { calculateFileHash } from "@/lib/utils";
 async function handleFileUpload(file: File) {
   try {
     const hash = await calculateFileHash(file);
-    console.log("Hash del archivo:", hash);
-    // formato del hash: "0x" + 64 caracteres hexadecimales
+    console.log("File hash:", hash);
+    // hash format: "0x" + 64 hex characters
   } catch (error) {
-    console.error("Error calculando hash:", error);
+    console.error("Error calculating hash:", error);
   }
 }
 ```
 
-#### Firmando un Hash
+#### Signing a Hash
 
 ```typescript
 import { signHash } from "@/lib/utils";
@@ -228,20 +236,20 @@ async function signDocument(hash: string) {
   const { currentWallet } = useWallet();
 
   if (!currentWallet) {
-    throw new Error("No hay wallet conectada");
+    throw new Error("No wallet connected");
   }
 
   try {
     const signature = await signHash(hash, currentWallet);
-    console.log("Firma:", signature);
+    console.log("Signature:", signature);
     return signature;
   } catch (error) {
-    console.error("Error firmando:", error);
+    console.error("Error signing:", error);
   }
 }
 ```
 
-#### Almacenando un Documento en la Blockchain
+#### Storing a Document on Blockchain
 
 ```typescript
 import { useWallet } from "@/contexts/WalletContext";
@@ -251,35 +259,35 @@ async function storeDocument(file: File) {
   const { contract, currentWallet } = useWallet();
 
   if (!contract || !currentWallet) {
-    throw new Error("Wallet o contrato no disponible");
+    throw new Error("Wallet or contract not available");
   }
 
   try {
-    // 1. Calcular hash del archivo
+    // 1. Calculate file hash
     const hash = await calculateFileHash(file);
 
-    // 2. Firmar el hash
+    // 2. Sign the hash
     const signature = await signHash(hash, currentWallet);
 
-    // 3. Obtener timestamp actual
+    // 3. Get current timestamp
     const timestamp = Math.floor(Date.now() / 1000);
 
-    // 4. Almacenar en la blockchain
+    // 4. Store on blockchain
     const tx = await contract.storeDocumentHash(hash, timestamp, signature);
 
-    // 5. Esperar confirmación
+    // 5. Wait for confirmation
     await tx.wait();
 
-    console.log("¡Documento almacenado exitosamente!");
+    console.log("Document stored successfully!");
     return tx.hash;
   } catch (error) {
-    console.error("Error almacenando documento:", error);
+    console.error("Error storing document:", error);
     throw error;
   }
 }
 ```
 
-#### Verificando un Documento
+#### Verifying a Document
 
 ```typescript
 import { useWallet } from "@/contexts/WalletContext";
@@ -289,25 +297,25 @@ async function verifyDocument(file: File, expectedSigner: string) {
   const { contract } = useWallet();
 
   if (!contract) {
-    throw new Error("Contrato no disponible");
+    throw new Error("Contract not available");
   }
 
   try {
-    // 1. Calcular hash del archivo
+    // 1. Calculate file hash
     const hash = await calculateFileHash(file);
 
-    // 2. Verificar si el documento existe
+    // 2. Check if document exists
     const exists = await contract.isDocumentStored(hash);
 
     if (!exists) {
-      return { valid: false, reason: "Documento no encontrado" };
+      return { valid: false, reason: "Document not found" };
     }
 
-    // 3. Obtener información del documento
+    // 3. Get document info
     const [docHash, timestamp, signer, signature] =
       await contract.getDocumentInfo(hash);
 
-    // 4. Verificar firma
+    // 4. Verify signature
     const isValid = await contract.verifyDocument(
       hash,
       expectedSigner,
@@ -321,13 +329,13 @@ async function verifyDocument(file: File, expectedSigner: string) {
       matches: signer.toLowerCase() === expectedSigner.toLowerCase(),
     };
   } catch (error) {
-    console.error("Error verificando documento:", error);
+    console.error("Error verifying document:", error);
     throw error;
   }
 }
 ```
 
-#### Escuchando Eventos de la Blockchain
+#### Listening to Blockchain Events
 
 ```typescript
 import { useEffect } from "react";
@@ -339,11 +347,11 @@ function DocumentListener() {
   useEffect(() => {
     if (!contract) return;
 
-    // Escuchar eventos de almacenamiento de documentos
+    // Listen for new document storage events
     const filter = contract.filters.DocumentStored();
 
     contract.on(filter, (hash, signer, timestamp, event) => {
-      console.log("Nuevo documento almacenado:", {
+      console.log("New document stored:", {
         hash,
         signer,
         timestamp: new Date(Number(timestamp) * 1000),
@@ -351,7 +359,7 @@ function DocumentListener() {
       });
     });
 
-    // Limpiar listener al desmontar
+    // Cleanup listener on unmount
     return () => {
       contract.removeAllListeners(filter);
     };
@@ -361,31 +369,31 @@ function DocumentListener() {
 }
 ```
 
-## 🔌 Integración de API
+## 🔌 API Integration
 
-### ABI del Contrato
+### Contract ABI
 
-El ABI del contrato se exporta desde `lib/contract.ts`:
+The contract ABI is exported from `lib/contract.ts`:
 
 ```typescript
 import { FILE_HASH_STORAGE_ABI, CONTRACT_ADDRESS } from "@/lib/contract";
 ```
 
-### Métodos del Contrato Disponibles
+### Available Contract Methods
 
 #### `storeDocumentHash(hash, timestamp, signature)`
 
-Almacena un hash de documento en la blockchain.
+Stores a document hash on the blockchain.
 
-**Parámetros**:
+**Parameters**:
 
-- `hash` (bytes32): Hash SHA-256 del documento
-- `timestamp` (uint256): Timestamp Unix
-- `signature` (bytes): Firma ECDSA (65 bytes)
+- `hash` (bytes32): SHA-256 hash of the document
+- `timestamp` (uint256): Unix timestamp
+- `signature` (bytes): ECDSA signature (65 bytes)
 
-**Retorna**: Recibo de transacción
+**Returns**: Transaction receipt
 
-**Ejemplo**:
+**Example**:
 
 ```typescript
 const tx = await contract.storeDocumentHash(
@@ -398,17 +406,17 @@ await tx.wait();
 
 #### `verifyDocument(hash, signer, signature)`
 
-Verifica una firma de documento.
+Verifies a document signature.
 
-**Parámetros**:
+**Parameters**:
 
-- `hash` (bytes32): Hash del documento
-- `signer` (address): Dirección del firmante esperado
-- `signature` (bytes): Firma a verificar
+- `hash` (bytes32): Document hash
+- `signer` (address): Expected signer address
+- `signature` (bytes): Signature to verify
 
-**Retorna**: `boolean` - true si la firma es válida
+**Returns**: `boolean` - true if signature is valid
 
-**Ejemplo**:
+**Example**:
 
 ```typescript
 const isValid = await contract.verifyDocument(
@@ -420,15 +428,15 @@ const isValid = await contract.verifyDocument(
 
 #### `getDocumentInfo(hash)`
 
-Recupera información completa del documento.
+Retrieves complete document information.
 
-**Parámetros**:
+**Parameters**:
 
-- `hash` (bytes32): Hash del documento
+- `hash` (bytes32): Document hash
 
-**Retorna**: `[bytes32, uint256, address, bytes]` - [hash, timestamp, signer, signature]
+**Returns**: `[bytes32, uint256, address, bytes]` - [hash, timestamp, signer, signature]
 
-**Ejemplo**:
+**Example**:
 
 ```typescript
 const [docHash, timestamp, signer, signature] = await contract.getDocumentInfo(
@@ -438,27 +446,27 @@ const [docHash, timestamp, signer, signature] = await contract.getDocumentInfo(
 
 #### `isDocumentStored(hash)`
 
-Verifica si un documento existe.
+Checks if a document exists.
 
-**Parámetros**:
+**Parameters**:
 
-- `hash` (bytes32): Hash del documento
+- `hash` (bytes32): Document hash
 
-**Retorna**: `boolean` - true si el documento existe
+**Returns**: `boolean` - true if document exists
 
-**Ejemplo**:
+**Example**:
 
 ```typescript
 const exists = await contract.isDocumentStored(hash);
 ```
 
-### API de Configuración
+### Configuration API
 
-La aplicación proporciona una ruta API para obtener la configuración del contrato:
+The application provides an API route to fetch contract configuration:
 
 **Endpoint**: `GET /api/config`
 
-**Respuesta**:
+**Response**:
 
 ```json
 {
@@ -470,46 +478,46 @@ La aplicación proporciona una ruta API para obtener la configuración del contr
 }
 ```
 
-**Uso**:
+**Usage**:
 
 ```typescript
 const response = await fetch("/api/config");
 const config = await response.json();
 ```
 
-## 🌍 Escenarios del Mundo Real
+## 🌍 Real-World Scenarios
 
-### Escenario 1: Verificación de Productos E-Commerce
+### Scenario 1: E-Commerce Product Verification
 
-**Caso de Uso**: Un marketplace en línea necesita verificar certificados de autenticidad de productos.
+**Use Case**: An online marketplace needs to verify product authenticity certificates.
 
-**Implementación**:
+**Implementation**:
 
 ```typescript
-// Componente para verificación de certificados de productos
+// Component for product certificate verification
 async function verifyProductCertificate(
   productId: string,
   certificateFile: File
 ) {
   const { contract, currentWallet } = useWallet();
 
-  // Calcular hash del certificado
+  // Calculate hash of certificate
   const hash = await calculateFileHash(certificateFile);
 
-  // Verificar si el certificado está registrado
+  // Check if certificate is registered
   const exists = await contract.isDocumentStored(hash);
 
   if (!exists) {
-    throw new Error("Certificado no encontrado en la blockchain");
+    throw new Error("Certificate not found in blockchain");
   }
 
-  // Obtener detalles del certificado
+  // Get certificate details
   const [_, timestamp, signer, signature] = await contract.getDocumentInfo(
     hash
   );
 
-  // Verificar que fue firmado por el fabricante
-  const manufacturerAddress = "0x..."; // Dirección conocida del fabricante
+  // Verify it was signed by the manufacturer
+  const manufacturerAddress = "0x..."; // Known manufacturer address
   const isValid = await contract.verifyDocument(
     hash,
     manufacturerAddress,
@@ -525,21 +533,21 @@ async function verifyProductCertificate(
 }
 ```
 
-**Beneficios**:
+**Benefits**:
 
-- Los clientes pueden verificar la autenticidad del producto instantáneamente
-- Reduce productos falsificados
-- Genera confianza en el marketplace
-- Prueba inmutable de emisión de certificado
+- Customers can verify product authenticity instantly
+- Reduces counterfeit products
+- Builds trust in the marketplace
+- Immutable proof of certificate issuance
 
-### Escenario 2: Cumplimiento de Documentos Financieros
+### Scenario 2: Financial Document Compliance
 
-**Caso de Uso**: Una institución financiera necesita almacenar y verificar documentos de cumplimiento.
+**Use Case**: A financial institution needs to store and verify compliance documents.
 
-**Implementación**:
+**Implementation**:
 
 ```typescript
-// Almacenamiento por lotes de documentos para cumplimiento
+// Batch document storage for compliance
 async function storeComplianceDocuments(
   documents: Array<{ file: File; documentType: string }>
 ) {
@@ -575,21 +583,21 @@ async function storeComplianceDocuments(
 }
 ```
 
-**Beneficios**:
+**Benefits**:
 
-- Rastro de auditoría inmutable para cumplimiento regulatorio
-- Prueba con timestamp de existencia de documentos
-- Verificación fácil por auditores
-- Costos de almacenamiento reducidos (solo se almacenan hashes)
+- Immutable audit trail for regulatory compliance
+- Timestamped proof of document existence
+- Easy verification by auditors
+- Reduced storage costs (only hashes stored)
 
-### Escenario 3: Documentación de Cadena de Suministro
+### Scenario 3: Supply Chain Documentation
 
-**Caso de Uso**: Rastrear documentos de envío y certificados en una cadena de suministro.
+**Use Case**: Tracking shipping documents and certificates in a supply chain.
 
-**Implementación**:
+**Implementation**:
 
 ```typescript
-// Rastreo de documentos de cadena de suministro
+// Supply chain document tracking
 class SupplyChainTracker {
   private contract: ethers.Contract;
 
@@ -628,7 +636,7 @@ class SupplyChainTracker {
     const exists = await this.contract.isDocumentStored(hash);
 
     if (!exists) {
-      return { valid: false, reason: "Documento no registrado" };
+      return { valid: false, reason: "Document not registered" };
     }
 
     const [_, timestamp, signer, signature] =
@@ -652,21 +660,21 @@ class SupplyChainTracker {
 }
 ```
 
-**Beneficios**:
+**Benefits**:
 
-- Documentación transparente de cadena de suministro
-- Previene la manipulación de documentos
-- Verificación rápida en cualquier punto de control
-- Reduce papeleo y tiempo de procesamiento
+- Transparent supply chain documentation
+- Prevents document tampering
+- Quick verification at any checkpoint
+- Reduces paperwork and processing time
 
-### Escenario 4: Verificación de Credenciales Académicas
+### Scenario 4: Academic Credential Verification
 
-**Caso de Uso**: Universidades emitiendo diplomas y certificados verificables.
+**Use Case**: Universities issuing verifiable diplomas and certificates.
 
-**Implementación**:
+**Implementation**:
 
 ```typescript
-// Sistema de credenciales académicas
+// Academic credential system
 async function issueDiploma(
   studentId: string,
   diplomaFile: File,
@@ -696,7 +704,7 @@ async function issueDiploma(
   };
 }
 
-// Verificación por empleador
+// Employer verification
 async function verifyDiploma(diplomaFile: File, expectedUniversity: string) {
   const hash = await calculateFileHash(diplomaFile);
   const [_, timestamp, signer, signature] = await contract.getDocumentInfo(
@@ -718,86 +726,86 @@ async function verifyDiploma(diplomaFile: File, expectedUniversity: string) {
 }
 ```
 
-**Beneficios**:
+**Benefits**:
 
-- Verificación instantánea de credenciales
-- Reduce el fraude
-- Elimina la necesidad de verificación manual
-- Accesibilidad global
+- Instant credential verification
+- Reduces fraud
+- Eliminates need for manual verification
+- Global accessibility
 
-## 🚢 Guías de Despliegue
+## 🚢 Deployment Guidelines
 
-### Despliegue de Desarrollo
+### Development Deployment
 
-Para desarrollo local, el script automatizado maneja todo:
+For local development, the automated script handles everything:
 
 ```bash
 npm run dev
 ```
 
-Esto hará:
+This will:
 
-1. Verificar si Anvil está corriendo
-2. Iniciar Anvil si es necesario
-3. Desplegar el contrato
-4. Actualizar configuración
-5. Iniciar el servidor de desarrollo de Next.js
+1. Check if Anvil is running
+2. Start Anvil if needed
+3. Deploy the contract
+4. Update configuration
+5. Start the Next.js dev server
 
-### Build de Producción
+### Production Build
 
-Construir la aplicación para producción:
+Build the application for production:
 
 ```bash
 npm run build
 ```
 
-Esto crea un build de producción optimizado en el directorio `.next`.
+This creates an optimized production build in the `.next` directory.
 
-### Despliegue de Producción
+### Production Deployment
 
-#### Opción 1: Desplegar a Mainnet/Testnet
+#### Option 1: Deploy to Mainnet/Testnet
 
-1. **Actualizar Configuración**:
+1. **Update Configuration**:
 
    ```typescript
-   // Actualizar lib/contract.ts o usar variables de entorno
-   export const CONTRACT_ADDRESS = "0xTuDireccionMainnet";
-   export const ANVIL_RPC_URL = "https://mainnet.infura.io/v3/TU_CLAVE";
+   // Update lib/contract.ts or use environment variables
+   export const CONTRACT_ADDRESS = "0xYourMainnetAddress";
+   export const ANVIL_RPC_URL = "https://mainnet.infura.io/v3/YOUR_KEY";
    ```
 
-2. **Construir**:
+2. **Build**:
 
    ```bash
    npm run build
    ```
 
-3. **Desplegar** (usando tu hosting preferido):
+3. **Deploy** (using your preferred hosting):
    ```bash
    npm start
    ```
 
-#### Opción 2: Desplegar a Vercel
+#### Option 2: Deploy to Vercel
 
-1. **Instalar Vercel CLI**:
+1. **Install Vercel CLI**:
 
    ```bash
    npm i -g vercel
    ```
 
-2. **Desplegar**:
+2. **Deploy**:
 
    ```bash
    vercel
    ```
 
-3. **Configurar Variables de Entorno** en el dashboard de Vercel:
+3. **Set Environment Variables** in Vercel dashboard:
    - `NEXT_PUBLIC_CONTRACT_ADDRESS`
    - `NEXT_PUBLIC_ANVIL_RPC_URL`
    - `NEXT_PUBLIC_CHAIN_ID`
 
-#### Opción 3: Despliegue con Docker
+#### Option 3: Docker Deployment
 
-Crear un `Dockerfile`:
+Create a `Dockerfile`:
 
 ```dockerfile
 FROM node:18-alpine
@@ -815,16 +823,16 @@ EXPOSE 3000
 CMD ["npm", "start"]
 ```
 
-Construir y ejecutar:
+Build and run:
 
 ```bash
 docker build -t filehash-dapp .
 docker run -p 3000:3000 filehash-dapp
 ```
 
-### Configuración Específica por Entorno
+### Environment-Specific Configuration
 
-Para diferentes entornos, usa variables de entorno:
+For different environments, use environment variables:
 
 **`.env.development`**:
 
@@ -837,166 +845,166 @@ NEXT_PUBLIC_CHAIN_ID=31337
 **`.env.production`**:
 
 ```env
-NEXT_PUBLIC_CONTRACT_ADDRESS=0xTuDireccionMainnet
-NEXT_PUBLIC_ANVIL_RPC_URL=https://mainnet.infura.io/v3/TU_CLAVE
+NEXT_PUBLIC_CONTRACT_ADDRESS=0xYourMainnetAddress
+NEXT_PUBLIC_ANVIL_RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
 NEXT_PUBLIC_CHAIN_ID=1
 ```
 
-## 🏗️ Arquitectura
+## 🏗️ Architecture
 
-### Estructura del Proyecto
+### Project Structure
 
 ```
 dapp/
 ├── app/
-│   ├── api/                    # Rutas API
-│   │   ├── check-anvil/        # Verificación de salud de Anvil
-│   │   ├── config/             # API de configuración del contrato
-│   │   └── deploy/             # API de despliegue
-│   ├── layout.tsx              # Layout raíz con providers
-│   ├── page.tsx                # Página principal de la aplicación
-│   └── globals.css             # Estilos globales
+│   ├── api/                    # API routes
+│   │   ├── check-anvil/        # Anvil health check
+│   │   ├── config/             # Contract configuration API
+│   │   └── deploy/             # Deployment API
+│   ├── layout.tsx              # Root layout with providers
+│   ├── page.tsx                # Main application page
+│   └── globals.css             # Global styles
 ├── components/
-│   ├── WalletSelector.tsx      # Componente de selección de wallet
-│   ├── FileUpload.tsx          # Subida y almacenamiento de documentos
-│   ├── DocumentVerifier.tsx    # Verificación de documentos
-│   ├── DocumentList.tsx        # Lista de documentos almacenados
-│   ├── ConnectionStatus.tsx    # Indicador de estado de conexión
-│   ├── ContractStatus.tsx      # Estado de despliegue del contrato
-│   ├── AnvilErrorDialog.tsx    # Diálogo de manejo de errores
-│   ├── HelpButton.tsx          # Ayuda y documentación
-│   ├── HelpModal.tsx           # Componente modal de ayuda
-│   └── Providers.tsx           # Wrapper de providers de contexto
+│   ├── WalletSelector.tsx      # Wallet selection component
+│   ├── FileUpload.tsx          # Document upload and storage
+│   ├── DocumentVerifier.tsx    # Document verification
+│   ├── DocumentList.tsx        # List of stored documents
+│   ├── ConnectionStatus.tsx     # Connection status indicator
+│   ├── ContractStatus.tsx      # Contract deployment status
+│   ├── AnvilErrorDialog.tsx   # Error handling dialog
+│   ├── HelpButton.tsx          # Help and documentation
+│   ├── HelpModal.tsx           # Help modal component
+│   └── Providers.tsx           # Context providers wrapper
 ├── contexts/
-│   ├── WalletContext.tsx       # Estado de wallet y contrato
-│   ├── DocumentContext.tsx     # Estado de lista de documentos
-│   └── ErrorDialogContext.tsx  # Estado de diálogo de errores
+│   ├── WalletContext.tsx       # Wallet and contract state
+│   ├── DocumentContext.tsx      # Document list state
+│   └── ErrorDialogContext.tsx  # Error dialog state
 ├── hooks/
-│   └── useContractConfig.ts    # Hook de configuración del contrato
+│   └── useContractConfig.ts     # Contract configuration hook
 ├── lib/
-│   ├── contract.ts             # ABI y configuración del contrato
-│   └── utils.ts                # Funciones de utilidad (hash, sign, format)
+│   ├── contract.ts             # Contract ABI and configuration
+│   └── utils.ts                # Utility functions (hash, sign, format)
 ├── config/
-│   └── contract-config.json    # Archivo de configuración del contrato
+│   └── contract-config.json    # Contract configuration file
 ├── scripts/
-│   ├── deploy-automated.js     # Script de despliegue automatizado
-│   ├── check-anvil.js          # Script de verificación de Anvil
-│   └── deploy-contract.sh      # Script de despliegue de contrato
-└── public/                     # Assets estáticos
+│   ├── deploy-automated.js     # Automated deployment script
+│   ├── check-anvil.js          # Anvil health check script
+│   └── deploy-contract.sh      # Contract deployment script
+└── public/                     # Static assets
 ```
 
-### Gestión de Estado
+### State Management
 
-La aplicación usa React Context API para gestión de estado:
+The application uses React Context API for state management:
 
-- **WalletContext**: Gestiona la conexión de wallet, instancia del contrato y selección de wallet
-- **DocumentContext**: Gestiona la lista de documentos almacenados y operaciones de documentos
-- **ErrorDialogContext**: Gestiona diálogos de error y notificaciones de usuario
+- **WalletContext**: Manages wallet connection, contract instance, and wallet selection
+- **DocumentContext**: Manages the list of stored documents and document operations
+- **ErrorDialogContext**: Manages error dialogs and user notifications
 
-### Flujo de Datos
+### Data Flow
 
 ```
-Acción del Usuario
+User Action
     ↓
-Componente (ej., FileUpload)
+Component (e.g., FileUpload)
     ↓
-Hook de Contexto (ej., useWallet)
+Context Hook (e.g., useWallet)
     ↓
-Método del Contrato (vía ethers.js)
+Contract Method (via ethers.js)
     ↓
 Blockchain (Anvil/Mainnet)
     ↓
-Escuchador de Eventos
+Event Listener
     ↓
-Actualización de Contexto
+Context Update
     ↓
-Re-renderizado de UI
+UI Re-render
 ```
 
-## 🤝 Contribución
+## 🤝 Contributing
 
-¡Aceptamos contribuciones! Por favor sigue estas guías:
+We welcome contributions! Please follow these guidelines:
 
-### Configuración de Desarrollo
+### Development Setup
 
-1. **Hacer fork del repositorio**
+1. **Fork the repository**
 
-2. **Crear una rama de feature**:
+2. **Create a feature branch**:
 
    ```bash
-   git checkout -b feature/caracteristica-increible
+   git checkout -b feature/amazing-feature
    ```
 
-3. **Hacer tus cambios**:
+3. **Make your changes**:
 
-   - Seguir mejores prácticas de TypeScript
-   - Escribir código claro y autodocumentado
-   - Agregar comentarios para lógica compleja
-   - Actualizar documentación según sea necesario
+   - Follow TypeScript best practices
+   - Write clear, self-documenting code
+   - Add comments for complex logic
+   - Update documentation as needed
 
-4. **Probar tus cambios**:
+4. **Test your changes**:
 
    ```bash
    npm run build
    npm run dev
    ```
 
-5. **Hacer commit de tus cambios**:
+5. **Commit your changes**:
 
    ```bash
-   git commit -m "feat: agregar característica increíble"
+   git commit -m "feat: add amazing feature"
    ```
 
-6. **Hacer push a tu rama**:
+6. **Push to your branch**:
 
    ```bash
-   git push origin feature/caracteristica-increible
+   git push origin feature/amazing-feature
    ```
 
-7. **Abrir un Pull Request**
+7. **Open a Pull Request**
 
-### Guías de Estilo de Código
+### Code Style Guidelines
 
-- **TypeScript**: Usar modo estricto, evitar tipos `any`
-- **React**: Usar componentes funcionales y hooks
-- **Nomenclatura**: Usar nombres descriptivos en camelCase
-- **Comentarios**: Documentar lógica compleja y reglas de negocio
-- **Formato**: Usar Prettier (configurado en el proyecto)
+- **TypeScript**: Use strict mode, avoid `any` types
+- **React**: Use functional components and hooks
+- **Naming**: Use descriptive, camelCase names
+- **Comments**: Document complex logic and business rules
+- **Formatting**: Use Prettier (configured in project)
 
-### Checklist de Pull Request
+### Pull Request Checklist
 
-- [ ] El código sigue las guías de estilo del proyecto
-- [ ] Auto-revisión completada
-- [ ] Comentarios agregados para código complejo
-- [ ] Documentación actualizada
-- [ ] Sin declaraciones console.log (usar logging apropiado)
-- [ ] Los tests pasan (si aplica)
-- [ ] El build se completa sin errores
+- [ ] Code follows project style guidelines
+- [ ] Self-review completed
+- [ ] Comments added for complex code
+- [ ] Documentation updated
+- [ ] No console.log statements (use proper logging)
+- [ ] Tests pass (if applicable)
+- [ ] Build succeeds without errors
 
-## 🔧 Solución de Problemas
+## 🔧 Troubleshooting
 
-### Problemas Comunes y Soluciones
+### Common Issues and Solutions
 
-#### Problema: "Error conectando a Anvil"
+#### Issue: "Error connecting to Anvil"
 
-**Síntomas**: La aplicación muestra un diálogo de error de conexión
+**Symptoms**: Application shows connection error dialog
 
-**Soluciones**:
+**Solutions**:
 
-1. **Verificar si Anvil está corriendo**:
+1. **Check if Anvil is running**:
 
    ```bash
    npm run check-anvil
    ```
 
-2. **Iniciar Anvil manualmente**:
+2. **Start Anvil manually**:
 
    ```bash
    cd ../sc
    anvil
    ```
 
-3. **Verificar puerto 8545**:
+3. **Check port 8545**:
 
    ```bash
    # Windows
@@ -1006,7 +1014,7 @@ Re-renderizado de UI
    lsof -i :8545
    ```
 
-4. **Terminar proceso si el puerto está en uso**:
+4. **Kill process if port is in use**:
 
    ```bash
    # Windows
@@ -1016,13 +1024,13 @@ Re-renderizado de UI
    kill -9 <PID>
    ```
 
-#### Problema: "Contrato no desplegado"
+#### Issue: "Contract not deployed"
 
-**Síntomas**: Diálogo de error mostrando que el contrato no se encontró
+**Symptoms**: Error dialog showing contract not found
 
-**Soluciones**:
+**Solutions**:
 
-1. **Desplegar contrato manualmente**:
+1. **Deploy contract manually**:
 
    ```bash
    cd ../sc
@@ -1030,80 +1038,80 @@ Re-renderizado de UI
      --rpc-url http://localhost:8545 --broadcast
    ```
 
-2. **Actualizar configuración**:
+2. **Update configuration**:
 
-   - Copiar dirección del contrato de la salida del despliegue
-   - Actualizar `config/contract-config.json`
+   - Copy contract address from deployment output
+   - Update `config/contract-config.json`
 
-3. **Usar despliegue automatizado**:
+3. **Use automated deployment**:
    ```bash
    npm run deploy
    ```
 
-#### Problema: "Firma inválida"
+#### Issue: "Invalid signature"
 
-**Síntomas**: La verificación de firma falla
+**Symptoms**: Signature verification fails
 
-**Soluciones**:
+**Solutions**:
 
-1. **Verificar formato del hash**: Debe ser `0x` + 64 caracteres hexadecimales
+1. **Check hash format**: Must be `0x` + 64 hex characters
 
    ```typescript
-   // Correcto
+   // Correct
    const hash =
      "0x7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504ded97730";
 
-   // Incorrecto
+   // Incorrect
    const hash =
      "7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504ded97730";
    ```
 
-2. **Verificar que la wallet esté conectada**:
+2. **Verify wallet is connected**:
 
    ```typescript
    const { currentWallet, isConnected } = useWallet();
    if (!isConnected || !currentWallet) {
-     // Manejar error
+     // Handle error
    }
    ```
 
-3. **Verificar longitud de la firma**: Debe ser 65 bytes
+3. **Check signature length**: Must be 65 bytes
    ```typescript
    if (signature.length !== 130) {
-     // 65 bytes = 130 caracteres hex
-     throw new Error("Longitud de firma inválida");
+     // 65 bytes = 130 hex chars
+     throw new Error("Invalid signature length");
    }
    ```
 
-#### Problema: "Transacción fallida"
+#### Issue: "Transaction failed"
 
-**Síntomas**: La transacción de blockchain falla
+**Symptoms**: Blockchain transaction fails
 
-**Soluciones**:
+**Solutions**:
 
-1. **Verificar balance de la wallet**:
+1. **Check wallet balance**:
 
    ```typescript
    const balance = await provider.getBalance(wallet.address);
    console.log("Balance:", ethers.formatEther(balance));
    ```
 
-2. **Verificar límite de gas**: Anvil debe tener gas suficiente
+2. **Check gas limit**: Anvil should have sufficient gas
 
    ```bash
-   # Reiniciar Anvil con límite de gas más alto
+   # Restart Anvil with higher gas limit
    anvil --gas-limit 10000000
    ```
 
-3. **Verificar estado del contrato**: Verificar que el contrato esté desplegado y accesible
+3. **Check contract state**: Verify contract is deployed and accessible
 
-#### Problema: "Errores de build"
+#### Issue: "Build errors"
 
-**Síntomas**: `npm run build` falla
+**Symptoms**: `npm run build` fails
 
-**Soluciones**:
+**Solutions**:
 
-1. **Limpiar caché**:
+1. **Clear cache**:
 
    ```bash
    rm -rf .next
@@ -1111,77 +1119,77 @@ Re-renderizado de UI
    npm install
    ```
 
-2. **Verificar errores de TypeScript**:
+2. **Check TypeScript errors**:
 
    ```bash
    npx tsc --noEmit
    ```
 
-3. **Verificar dependencias faltantes**:
+3. **Check for missing dependencies**:
    ```bash
    npm install
    ```
 
-#### Problema: "Hot reload no funciona"
+#### Issue: "Hot reload not working"
 
-**Síntomas**: Los cambios no se reflejan en el navegador
+**Symptoms**: Changes not reflected in browser
 
-**Soluciones**:
+**Solutions**:
 
-1. **Reiniciar servidor de desarrollo**:
+1. **Restart dev server**:
 
    ```bash
-   # Detener servidor (Ctrl+C)
+   # Stop server (Ctrl+C)
    npm run dev
    ```
 
-2. **Limpiar caché del navegador**: Hard refresh (Ctrl+Shift+R o Cmd+Shift+R)
+2. **Clear browser cache**: Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
 
-3. **Verificar file watchers**: Asegurar que el sistema de archivos soporte watching
+3. **Check file watchers**: Ensure file system supports watching
 
-### Obtener Ayuda
+### Getting Help
 
-Si encuentras problemas no cubiertos aquí:
+If you encounter issues not covered here:
 
-1. **Revisar los logs**: Consola del navegador y salida de terminal
-2. **Revisar documentación**: Este README y comentarios en el código
-3. **Abrir un issue**: Proporcionar mensajes de error, pasos para reproducir y detalles del entorno
-4. **Verificar dependencias**: Asegurar que todos los paquetes estén actualizados
+1. **Check the logs**: Browser console and terminal output
+2. **Review documentation**: This README and inline code comments
+3. **Open an issue**: Provide error messages, steps to reproduce, and environment details
+4. **Check dependencies**: Ensure all packages are up to date
 
-### Modo Debug
+### Debug Mode
 
-Habilitar logging detallado:
+Enable verbose logging:
 
 ```typescript
-// En lib/contract.ts o utils.ts
+// In lib/contract.ts or utils.ts
 const DEBUG = process.env.NODE_ENV === "development";
 
 if (DEBUG) {
-  console.log("Info de debug:", data);
+  console.log("Debug info:", data);
 }
 ```
 
-## 📚 Recursos Adicionales
+## 📚 Additional Resources
 
-- [Documentación de Next.js](https://nextjs.org/docs)
-- [Documentación de Ethers.js](https://docs.ethers.org/)
-- [Documentación de Foundry](https://book.getfoundry.sh/)
-- [Documentación de Solidity](https://docs.soliditylang.org/)
-- [Recursos para Desarrolladores de Ethereum](https://ethereum.org/developers/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Ethers.js Documentation](https://docs.ethers.org/)
+- [Foundry Documentation](https://book.getfoundry.sh/)
+- [Solidity Documentation](https://docs.soliditylang.org/)
+- [Ethereum Developer Resources](https://ethereum.org/developers/)
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Agradecimientos
+## 🙏 Acknowledgments
 
-- **Foundry**: Por el excelente framework de desarrollo
-- **Ethers.js**: Por la robusta interacción con Ethereum
-- **Equipo de Next.js**: Por el increíble framework de React
-- **Tailwind CSS**: Por el framework CSS utility-first
+- **Foundry**: For the excellent development framework
+- **Ethers.js**: For robust Ethereum interaction
+- **Next.js Team**: For the amazing React framework
+- **Tailwind CSS**: For the utility-first CSS framework
 
 ---
 
-**Construido con ❤️ para la comunidad blockchain**
+**Built with ❤️ for the blockchain community**
 
-Para preguntas, problemas o contribuciones, por favor abre un issue o pull request en GitHub.
+For questions, issues, or contributions, please open an issue or pull request on GitHub.

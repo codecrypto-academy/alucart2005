@@ -1,4 +1,4 @@
-# FileHashStorage - Smart Contracts Backend
+# FileHashStorage - Backend de Smart Contracts
 
 ![Foundry](https://img.shields.io/badge/Foundry-Latest-orange)
 ![Solidity](https://img.shields.io/badge/Solidity-^0.8.13-blue)
@@ -6,61 +6,61 @@
 
 <div align="center">
 
-**🌐 Language / Idioma / Idioma**
+**🌐 Idioma / Language / Idioma**
 
-[![English](https://img.shields.io/badge/English-🇬🇧-blue)](README.md) [![Spanish](https://img.shields.io/badge/Spanish-🇪🇸-red)](README.es.md) [![Portuguese](https://img.shields.io/badge/Portuguese-🇵🇹-green)](README.pt.md)
+[![Inglês](https://img.shields.io/badge/Inglês-🇬🇧-blue)](README.md) [![Espanhol](https://img.shields.io/badge/Espanhol-🇪🇸-red)](README.es.md) [![Português](https://img.shields.io/badge/Português-🇵🇹-green)](README.pt.md)
 
 </div>
 
-Ethereum blockchain-based document storage and verification system. This smart contract enables storing document hashes with immutable timestamps and ECDSA cryptographic signatures, providing a decentralized solution for document authenticity verification.
+Sistema de armazenamento e verificação de documentos baseado em blockchain Ethereum. Este contrato inteligente permite armazenar hashes de documentos com timestamps imutáveis e assinaturas criptográficas ECDSA, fornecendo uma solução descentralizada para verificação de autenticidade de documentos.
 
-## 📋 Table of Contents
+## 📋 Índice
 
-- [Introduction](#-introduction)
-- [Installation](#-installation)
-- [Configuration](#-configuration)
-- [Usage](#-usage)
-- [Contract API](#-contract-api)
-- [Practical Examples](#-practical-examples)
-- [Testing](#-testing)
-- [Deployment](#-deployment)
-- [Contributing](#-contributing)
+- [Introdução](#-introdução)
+- [Instalação](#-instalação)
+- [Configuração](#-configuração)
+- [Uso](#-uso)
+- [API do Contrato](#-api-do-contrato)
+- [Exemplos Práticos](#-exemplos-práticos)
+- [Testes](#-testes)
+- [Implantação](#-implantação)
+- [Contribuição](#-contribuição)
 
-## 🎯 Introduction
+## 🎯 Introdução
 
-FileHashStorage is a smart contract designed to provide an immutable document registration and verification system. It uses cryptographic hashing (SHA-256) and ECDSA digital signatures to ensure document integrity and authenticity.
+FileHashStorage é um contrato inteligente projetado para fornecer um sistema imutável de registro e verificação de documentos. Utiliza hash criptográfico (SHA-256) e assinaturas digitais ECDSA para garantir a integridade e autenticidade dos documentos.
 
-### Key Features
+### Características Principais
 
-- **Immutable Storage**: Document hashes are permanently stored on the blockchain
-- **Cryptographic Verification**: ECDSA signature-based verification system
-- **Timestamps**: Each document includes a Unix timestamp for temporal tracking
-- **Events**: Event emission for frontend and API integration
-- **Gas Optimized**: Efficient design to minimize transaction costs
+- **Armazenamento Imutável**: Os hashes de documentos são armazenados permanentemente na blockchain
+- **Verificação Criptográfica**: Sistema de verificação baseado em assinaturas ECDSA
+- **Timestamps**: Cada documento inclui um timestamp Unix para rastreamento temporal
+- **Eventos**: Emissão de eventos para integração com frontends e APIs
+- **Otimizado para Gas**: Design eficiente para minimizar custos de transação
 
-### Use Cases
+### Casos de Uso
 
-This contract is ideal for:
+Este contrato é ideal para:
 
-- **E-commerce**: Product certificate verification, warranties, and authenticity documents
-- **Verification APIs**: Backend for document verification services
-- **Legal Compliance**: Immutable registration of contracts and legal documents
-- **Supply Chain**: Shipping document and certification traceability
-- **Education**: Academic credential and certificate verification
+- **E-commerce**: Verificação de certificados de produtos, garantias e documentos de autenticidade
+- **APIs de Verificação**: Backend para serviços de verificação de documentos
+- **Conformidade Legal**: Registro imutável de contratos e documentos legais
+- **Cadeia de Suprimentos**: Rastreabilidade de documentos de envio e certificações
+- **Educação**: Verificação de credenciais acadêmicas e certificados
 
-## 🚀 Installation
+## 🚀 Instalação
 
-### Prerequisites
+### Pré-requisitos
 
-- **Rust** (for Foundry) - [Install Rust](https://rustup.rs/)
-- **Git** - Version control
-- **Node.js** (optional) - For automation scripts
+- **Rust** (para Foundry) - [Instalar Rust](https://rustup.rs/)
+- **Git** - Controle de versão
+- **Node.js** (opcional) - Para scripts de automação
 
-### Install Foundry
+### Instalar Foundry
 
-Foundry is a fast and modular toolkit for Ethereum application development.
+Foundry é um toolkit rápido e modular para desenvolvimento de aplicações Ethereum.
 
-#### Linux and macOS
+#### Linux e macOS
 
 ```bash
 curl -L https://foundry.paradigm.xyz | bash
@@ -70,14 +70,14 @@ foundryup
 #### Windows
 
 ```powershell
-# Using Git Bash or PowerShell
+# Usando Git Bash ou PowerShell
 irm https://foundry.paradigm.xyz | iex
 foundryup
 ```
 
-Or download from: [Foundry Releases](https://github.com/foundry-rs/foundry/releases)
+Ou baixe de: [Releases do Foundry](https://github.com/foundry-rs/foundry/releases)
 
-### Verify Installation
+### Verificar Instalação
 
 ```bash
 forge --version
@@ -85,37 +85,37 @@ cast --version
 anvil --version
 ```
 
-### Install Project Dependencies
+### Instalar Dependências do Projeto
 
 ```bash
 cd sc
 forge install
 ```
 
-This will install `forge-std` and other necessary dependencies.
+Isso instalará `forge-std` e outras dependências necessárias.
 
-## ⚙️ Configuration
+## ⚙️ Configuração
 
-### Project Structure
+### Estrutura do Projeto
 
 ```
 sc/
-├── src/                    # Source contracts
+├── src/                    # Contratos fonte
 │   └── FileHashStorage.sol
-├── test/                   # Tests
+├── test/                   # Testes
 │   └── FileHashStorage.t.sol
-├── script/                 # Deployment scripts
+├── script/                 # Scripts de implantação
 │   └── FileHashStorage.s.sol
-├── lib/                    # Dependencies
+├── lib/                    # Dependências
 │   └── forge-std/
-├── out/                    # Compiled artifacts
-├── cache/                  # Compilation cache
-└── foundry.toml           # Foundry configuration
+├── out/                    # Artefatos compilados
+├── cache/                  # Cache de compilação
+└── foundry.toml           # Configuração do Foundry
 ```
 
-### Foundry Configuration
+### Configuração do Foundry
 
-The `foundry.toml` file contains the project configuration:
+O arquivo `foundry.toml` contém a configuração do projeto:
 
 ```toml
 [profile.default]
@@ -124,88 +124,88 @@ out = "out"
 libs = ["lib"]
 ```
 
-To customize the configuration, edit `foundry.toml` according to your needs. See the [Foundry documentation](https://book.getfoundry.sh/reference/config) for more options.
+Para personalizar a configuração, edite `foundry.toml` de acordo com suas necessidades. Consulte a [documentação do Foundry](https://book.getfoundry.sh/reference/config) para mais opções.
 
-## 💻 Usage
+## 💻 Uso
 
-### Compile Contracts
+### Compilar Contratos
 
 ```bash
 forge build
 ```
 
-Compiled artifacts are generated in the `out/` directory.
+Os artefatos compilados são gerados no diretório `out/`.
 
-### Run Tests
+### Executar Testes
 
 ```bash
-# Run all tests
+# Executar todos os testes
 forge test
 
-# Run tests with detailed logs
+# Executar testes com logs detalhados
 forge test -vvv
 
-# Run a specific test
+# Executar um teste específico
 forge test --match-test test_StoreDocumentHash
 
-# Run tests with gas coverage
+# Executar testes com cobertura de gas
 forge test --gas-report
 ```
 
-### Format Code
+### Formatar Código
 
 ```bash
 forge fmt
 ```
 
-### Gas Analysis
+### Análise de Gas
 
 ```bash
-# Generate gas snapshot
+# Gerar snapshot de gas
 forge snapshot
 
-# Compare snapshots
+# Comparar snapshots
 forge snapshot --diff
 ```
 
-### Start Anvil (Local Blockchain)
+### Iniciar Anvil (Blockchain Local)
 
 ```bash
 anvil
 ```
 
-Anvil will start a local blockchain at `http://localhost:8545` with 10 pre-funded accounts.
+O Anvil iniciará uma blockchain local em `http://localhost:8545` com 10 contas pré-financiadas.
 
-## 📚 Contract API
+## 📚 API do Contrato
 
-### Main Functions
+### Funções Principais
 
 #### `storeDocumentHash(bytes32 hash, uint256 timestamp, bytes calldata signature)`
 
-Stores a document hash on the blockchain with its timestamp and signature.
+Armazena o hash de um documento na blockchain com seu timestamp e assinatura.
 
-**Parameters**:
+**Parâmetros**:
 
-- `hash` (bytes32): Document hash (SHA-256, Keccak-256, etc.)
-- `timestamp` (uint256): Unix registration timestamp
-- `signature` (bytes): ECDSA signature of the hash (65 bytes)
+- `hash` (bytes32): Hash do documento (SHA-256, Keccak-256, etc.)
+- `timestamp` (uint256): Timestamp Unix de registro
+- `signature` (bytes): Assinatura ECDSA do hash (65 bytes)
 
-**Returns**: `bool` - `true` if storage was successful
+**Retorna**: `bool` - `true` se o armazenamento foi bem-sucedido
 
-**Events**: Emits `DocumentStored(bytes32 indexed hash, address indexed signer, uint256 timestamp)`
+**Eventos**: Emite `DocumentStored(bytes32 indexed hash, address indexed signer, uint256 timestamp)`
 
-**Will revert if**:
+**Reverterá se**:
 
-- The hash is `bytes32(0)`
-- The document is already stored
-- The signature is invalid or not 65 bytes
+- O hash é `bytes32(0)`
+- O documento já está armazenado
+- A assinatura é inválida ou não tem 65 bytes
 
-**Usage example**:
+**Exemplo de uso**:
 
 ```solidity
-bytes32 documentHash = keccak256("my_document.pdf");
+bytes32 documentHash = keccak256("meu_documento.pdf");
 uint256 timestamp = block.timestamp;
-bytes memory signature = /* 65-byte ECDSA signature */;
+bytes memory signature = /* assinatura ECDSA de 65 bytes */;
 
 bool success = fileHashStorage.storeDocumentHash(
     documentHash,
@@ -216,27 +216,27 @@ bool success = fileHashStorage.storeDocumentHash(
 
 #### `verifyDocument(bytes32 hash, address signer, bytes calldata signature)`
 
-Verifies that a signature corresponds to a specific document and signer.
+Verifica que uma assinatura corresponde a um documento e signatário específicos.
 
-**Parameters**:
+**Parâmetros**:
 
-- `hash` (bytes32): Document hash to verify
-- `signer` (address): Expected signer address
-- `signature` (bytes): Signature to verify
+- `hash` (bytes32): Hash do documento a verificar
+- `signer` (address): Endereço do signatário esperado
+- `signature` (bytes): Assinatura a verificar
 
-**Returns**: `bool` - `true` if the signature is valid and corresponds to the signer
+**Retorna**: `bool` - `true` se a assinatura é válida e corresponde ao signatário
 
-**Will revert if**:
+**Reverterá se**:
 
-- The document does not exist
-- The signer is `address(0)`
+- O documento não existe
+- O signatário é `address(0)`
 
-**Usage example**:
+**Exemplo de uso**:
 
 ```solidity
-bytes32 documentHash = keccak256("my_document.pdf");
+bytes32 documentHash = keccak256("meu_documento.pdf");
 address expectedSigner = 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb;
-bytes memory signature = /* document signature */;
+bytes memory signature = /* assinatura do documento */;
 
 bool isValid = fileHashStorage.verifyDocument(
     documentHash,
@@ -247,25 +247,25 @@ bool isValid = fileHashStorage.verifyDocument(
 
 #### `getDocumentInfo(bytes32 hash)`
 
-Retrieves all stored information about a document.
+Obtém todas as informações armazenadas de um documento.
 
-**Parameters**:
+**Parâmetros**:
 
-- `hash` (bytes32): Document hash
+- `hash` (bytes32): Hash do documento
 
-**Returns**:
+**Retorna**:
 
-- `bytes32 documentHash`: Document hash
-- `uint256 timestamp`: Registration timestamp
-- `address signer`: Signer address
-- `bytes memory signature`: Document signature
+- `bytes32 documentHash`: Hash do documento
+- `uint256 timestamp`: Timestamp de registro
+- `address signer`: Endereço do signatário
+- `bytes memory signature`: Assinatura do documento
 
-**Will revert if**: The document does not exist
+**Reverterá se**: O documento não existe
 
-**Usage example**:
+**Exemplo de uso**:
 
 ```solidity
-bytes32 documentHash = keccak256("my_document.pdf");
+bytes32 documentHash = keccak256("meu_documento.pdf");
 
 (
     bytes32 docHash,
@@ -277,53 +277,53 @@ bytes32 documentHash = keccak256("my_document.pdf");
 
 #### `isDocumentStored(bytes32 hash)`
 
-Checks if a document exists in the system.
+Verifica se um documento existe no sistema.
 
-**Parameters**:
+**Parâmetros**:
 
-- `hash` (bytes32): Document hash
+- `hash` (bytes32): Hash do documento
 
-**Returns**: `bool` - `true` if the document is stored
+**Retorna**: `bool` - `true` se o documento está armazenado
 
-**Usage example**:
+**Exemplo de uso**:
 
 ```solidity
-bytes32 documentHash = keccak256("my_document.pdf");
+bytes32 documentHash = keccak256("meu_documento.pdf");
 bool exists = fileHashStorage.isDocumentStored(documentHash);
 ```
 
 #### `getDocumentSignature(bytes32 hash)`
 
-Retrieves the stored signature of a specific document.
+Obtém a assinatura armazenada de um documento específico.
 
-**Parameters**:
+**Parâmetros**:
 
-- `hash` (bytes32): Document hash
+- `hash` (bytes32): Hash do documento
 
-**Returns**: `bytes memory` - Document signature
+**Retorna**: `bytes memory` - Assinatura do documento
 
-**Will revert if**: The document does not exist
+**Reverterá se**: O documento não existe
 
-### Events
+### Eventos
 
 #### `DocumentStored(bytes32 indexed hash, address indexed signer, uint256 timestamp)`
 
-Emitted when a document is successfully stored.
+Emitido quando um documento é armazenado com sucesso.
 
-**Parameters**:
+**Parâmetros**:
 
-- `hash`: Stored document hash
-- `signer`: Signer address
-- `timestamp`: Registration timestamp
+- `hash`: Hash do documento armazenado
+- `signer`: Endereço do signatário
+- `timestamp`: Timestamp de registro
 
-## 🌍 Practical Examples
+## 🌍 Exemplos Práticos
 
-### Example 1: E-Commerce API Integration
+### Exemplo 1: Integração com API de E-Commerce
 
-**Scenario**: A marketplace needs to verify product authenticity certificates.
+**Cenário**: Um marketplace precisa verificar certificados de autenticidade de produtos.
 
 ```solidity
-// Wrapper contract for e-commerce
+// Contrato wrapper para e-commerce
 contract ECommerceVerification {
     FileHashStorage public fileHashStorage;
 
@@ -339,14 +339,14 @@ contract ECommerceVerification {
         uint256 timestamp,
         bytes calldata signature
     ) external {
-        // Store certificate in FileHashStorage
+        // Armazenar certificado no FileHashStorage
         fileHashStorage.storeDocumentHash(
             documentHash,
             timestamp,
             signature
         );
 
-        // Link certificate with product
+        // Vincular certificado com produto
         productCertificates[documentHash] = productId;
     }
 
@@ -354,16 +354,16 @@ contract ECommerceVerification {
         bytes32 documentHash,
         address manufacturer
     ) external view returns (bool) {
-        // Verify certificate exists
+        // Verificar que o certificado existe
         if (!fileHashStorage.isDocumentStored(documentHash)) {
             return false;
         }
 
-        // Get certificate information
+        // Obter informações do certificado
         (, , address signer, bytes memory signature) =
             fileHashStorage.getDocumentInfo(documentHash);
 
-        // Verify it was signed by the manufacturer
+        // Verificar que foi assinado pelo fabricante
         return fileHashStorage.verifyDocument(
             documentHash,
             manufacturer,
@@ -373,18 +373,18 @@ contract ECommerceVerification {
 }
 ```
 
-**Usage in REST API**:
+**Uso em API REST**:
 
 ```javascript
 // Endpoint: POST /api/products/:id/verify-certificate
 async function verifyProductCertificate(productId, certificateFile) {
-  // 1. Calculate certificate hash
+  // 1. Calcular hash do certificado
   const hash = calculateSHA256(certificateFile);
 
-  // 2. Get manufacturer address from database
+  // 2. Obter endereço do fabricante do banco de dados
   const manufacturer = await getManufacturerAddress(productId);
 
-  // 3. Verify on blockchain
+  // 3. Verificar na blockchain
   const isValid = await ecommerceContract.verifyProductCertificate(
     hash,
     manufacturer
@@ -398,12 +398,12 @@ async function verifyProductCertificate(productId, certificateFile) {
 }
 ```
 
-### Example 2: Document Verification System for API
+### Exemplo 2: Sistema de Verificação de Documentos para API
 
-**Scenario**: Backend API that allows clients to verify documents.
+**Cenário**: Backend API que permite aos clientes verificar documentos.
 
 ```solidity
-// Contract for verification service
+// Contrato para serviço de verificação
 contract DocumentVerificationService {
     FileHashStorage public fileHashStorage;
 
@@ -478,7 +478,7 @@ contract DocumentVerificationService {
 }
 ```
 
-**REST API Integration**:
+**Integração com API REST**:
 
 ```javascript
 // Endpoint: POST /api/documents/verify
@@ -538,12 +538,12 @@ app.post("/api/documents/batch-verify", async (req, res) => {
 });
 ```
 
-### Example 3: Timestamp System for Legal Contracts
+### Exemplo 3: Sistema de Timestamp para Contratos Legais
 
-**Scenario**: Notary office that needs to register contracts with immutable timestamps.
+**Cenário**: Cartório que precisa registrar contratos com timestamp imutável.
 
 ```solidity
-// Contract for legal registration
+// Contrato para registro legal
 contract LegalDocumentRegistry {
     FileHashStorage public fileHashStorage;
 
@@ -575,10 +575,10 @@ contract LegalDocumentRegistry {
         string memory documentType,
         string memory reference
     ) external {
-        // Register in FileHashStorage
+        // Registrar no FileHashStorage
         fileHashStorage.storeDocumentHash(hash, timestamp, signature);
 
-        // Store additional metadata
+        // Armazenar metadados adicionais
         documents[hash] = LegalDocument({
             hash: hash,
             documentType: documentType,
@@ -586,7 +586,7 @@ contract LegalDocumentRegistry {
             registeredAt: block.timestamp
         });
 
-        // Link with user
+        // Vincular com usuário
         userDocuments[msg.sender].push(hash);
 
         emit LegalDocumentRegistered(
@@ -612,12 +612,12 @@ contract LegalDocumentRegistry {
 }
 ```
 
-### Example 4: Web3 Frontend Integration
+### Exemplo 4: Integração com Frontend Web3
 
-**Scenario**: Frontend that interacts directly with the contract.
+**Cenário**: Frontend que interage diretamente com o contrato.
 
 ```javascript
-// Integration with ethers.js
+// Integração com ethers.js
 import { ethers } from "ethers";
 import FileHashStorageABI from "./abis/FileHashStorage.json";
 
@@ -631,21 +631,21 @@ class DocumentStorageService {
   }
 
   async storeDocument(file, wallet) {
-    // 1. Calculate file hash
+    // 1. Calcular hash do arquivo
     const fileHash = await this.calculateFileHash(file);
 
-    // 2. Sign the hash
+    // 2. Assinar o hash
     const signature = await wallet.signMessage(ethers.getBytes(fileHash));
 
-    // 3. Get timestamp
+    // 3. Obter timestamp
     const timestamp = Math.floor(Date.now() / 1000);
 
-    // 4. Store on blockchain
+    // 4. Armazenar na blockchain
     const tx = await this.contract
       .connect(wallet)
       .storeDocumentHash(fileHash, timestamp, signature);
 
-    // 5. Wait for confirmation
+    // 5. Aguardar confirmação
     const receipt = await tx.wait();
 
     return {
@@ -658,18 +658,18 @@ class DocumentStorageService {
   async verifyDocument(file, expectedSigner) {
     const fileHash = await this.calculateFileHash(file);
 
-    // Check existence
+    // Verificar existência
     const exists = await this.contract.isDocumentStored(fileHash);
 
     if (!exists) {
       return { valid: false, reason: "Document not found" };
     }
 
-    // Get information
+    // Obter informações
     const [hash, timestamp, signer, signature] =
       await this.contract.getDocumentInfo(fileHash);
 
-    // Verify signature
+    // Verificar assinatura
     const isValid = await this.contract.verifyDocument(
       fileHash,
       expectedSigner,
@@ -694,7 +694,7 @@ class DocumentStorageService {
     return hashHex;
   }
 
-  // Listen to events
+  // Escutar eventos
   onDocumentStored(callback) {
     this.contract.on("DocumentStored", (hash, signer, timestamp, event) => {
       callback({
@@ -708,33 +708,33 @@ class DocumentStorageService {
 }
 ```
 
-## 🧪 Testing
+## 🧪 Testes
 
-### Run Tests
+### Executar Testes
 
 ```bash
-# All tests
+# Todos os testes
 forge test
 
-# Tests with detailed logs
+# Testes com logs detalhados
 forge test -vvv
 
-# Tests with coverage
+# Testes com cobertura
 forge test --gas-report
 ```
 
-### Test Structure
+### Estrutura de Testes
 
-Tests are located in `test/FileHashStorage.t.sol` and cover:
+Os testes estão localizados em `test/FileHashStorage.t.sol` e cobrem:
 
-- ✅ Document storage
-- ✅ Document verification
-- ✅ Signature validation
-- ✅ Error handling
-- ✅ Emitted events
-- ✅ Edge cases (duplicate hashes, invalid signatures, etc.)
+- ✅ Armazenamento de documentos
+- ✅ Verificação de documentos
+- ✅ Validação de assinaturas
+- ✅ Tratamento de erros
+- ✅ Eventos emitidos
+- ✅ Casos extremos (hashes duplicados, assinaturas inválidas, etc.)
 
-### Test Example
+### Exemplo de Teste
 
 ```solidity
 function test_StoreAndVerifyDocument() public {
@@ -742,7 +742,7 @@ function test_StoreAndVerifyDocument() public {
     uint256 timestamp = block.timestamp;
     bytes memory signature = createSignature(hash, signer1Key);
 
-    // Store
+    // Armazenar
     bool success = fileHashStorage.storeDocumentHash(
         hash,
         timestamp,
@@ -750,7 +750,7 @@ function test_StoreAndVerifyDocument() public {
     );
     assertTrue(success);
 
-    // Verify
+    // Verificar
     bool isValid = fileHashStorage.verifyDocument(
         hash,
         signer1,
@@ -760,73 +760,73 @@ function test_StoreAndVerifyDocument() public {
 }
 ```
 
-## 🚢 Deployment
+## 🚢 Implantação
 
-### Deploy to Local Network (Anvil)
+### Implantar em Rede Local (Anvil)
 
 ```bash
-# 1. Start Anvil
+# 1. Iniciar Anvil
 anvil
 
-# 2. In another terminal, deploy
+# 2. Em outro terminal, implantar
 forge script script/FileHashStorage.s.sol:FileHashStorageScript \
     --rpc-url http://localhost:8545 \
     --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 \
     --broadcast
 ```
 
-### Deploy to Testnet (Sepolia)
+### Implantar em Testnet (Sepolia)
 
 ```bash
-# Set environment variables
-export PRIVATE_KEY=your_private_key
-export RPC_URL=https://sepolia.infura.io/v3/YOUR_PROJECT_ID
+# Configurar variáveis de ambiente
+export PRIVATE_KEY=sua_chave_privada
+export RPC_URL=https://sepolia.infura.io/v3/SEU_PROJECT_ID
 
-# Deploy
+# Implantar
 forge script script/FileHashStorage.s.sol:FileHashStorageScript \
     --rpc-url $RPC_URL \
     --private-key $PRIVATE_KEY \
     --broadcast \
     --verify \
-    --etherscan-api-key YOUR_ETHERSCAN_API_KEY
+    --etherscan-api-key SUA_ETHERSCAN_API_KEY
 ```
 
-### Deploy to Mainnet
+### Implantar em Mainnet
 
 ```bash
-# ⚠️ WARNING: Production only
+# ⚠️ AVISO: Apenas para produção
 forge script script/FileHashStorage.s.sol:FileHashStorageScript \
-    --rpc-url https://mainnet.infura.io/v3/YOUR_PROJECT_ID \
+    --rpc-url https://mainnet.infura.io/v3/SEU_PROJECT_ID \
     --private-key $PRIVATE_KEY \
     --broadcast \
     --verify \
-    --etherscan-api-key YOUR_ETHERSCAN_API_KEY \
+    --etherscan-api-key SUA_ETHERSCAN_API_KEY \
     --slow
 ```
 
-### Verify Contract on Etherscan
+### Verificar Contrato no Etherscan
 
 ```bash
 forge verify-contract \
-    CONTRACT_ADDRESS \
+    ENDERECO_DO_CONTRATO \
     FileHashStorage \
-    --etherscan-api-key YOUR_API_KEY \
+    --etherscan-api-key SUA_API_KEY \
     --chain-id 1
 ```
 
-## 🤝 Contributing
+## 🤝 Contribuição
 
-### Development Guidelines
+### Diretrizes de Desenvolvimento
 
-1. **Fork the repository**
+1. **Fazer fork do repositório**
 
-2. **Create a feature branch**:
+2. **Criar uma ramificação de funcionalidade**:
 
    ```bash
-   git checkout -b feature/new-feature
+   git checkout -b feature/nova-funcionalidade
    ```
 
-3. **Develop and test**:
+3. **Desenvolver e testar**:
 
    ```bash
    forge build
@@ -834,49 +834,49 @@ forge verify-contract \
    forge fmt
    ```
 
-4. **Commit**:
+4. **Fazer commit**:
 
    ```bash
-   git commit -m "feat: add new feature"
+   git commit -m "feat: adicionar nova funcionalidade"
    ```
 
-5. **Push and create Pull Request**
+5. **Enviar e criar Pull Request**
 
-### Code Standards
+### Padrões de Código
 
-- **Solidity Style Guide**: Follow [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html)
-- **Natspec**: Document all public functions with Natspec comments
-- **Tests**: Write tests for all new features
-- **Gas Optimization**: Consider gas optimization in new functions
+- **Solidity Style Guide**: Seguir [Guia de Estilo do Solidity](https://docs.soliditylang.org/en/latest/style-guide.html)
+- **Natspec**: Documentar todas as funções públicas com comentários Natspec
+- **Testes**: Escrever testes para todas as novas funcionalidades
+- **Otimização de Gas**: Considerar otimização de gas em novas funções
 
-### Pull Request Checklist
+### Checklist de Pull Request
 
-- [ ] Code compiles without errors (`forge build`)
-- [ ] All tests pass (`forge test`)
-- [ ] Code formatted (`forge fmt`)
-- [ ] Documentation updated
-- [ ] Tests added for new features
-- [ ] No compiler warnings
+- [ ] Código compila sem erros (`forge build`)
+- [ ] Todos os testes passam (`forge test`)
+- [ ] Código formatado (`forge fmt`)
+- [ ] Documentação atualizada
+- [ ] Testes adicionados para novas funcionalidades
+- [ ] Sem avisos do compilador
 
-## 📖 Additional Resources
+## 📖 Recursos Adicionais
 
-- [Foundry Documentation](https://book.getfoundry.sh/)
-- [Solidity Documentation](https://docs.soliditylang.org/)
-- [Ethereum Developer Resources](https://ethereum.org/developers/)
-- [OpenZeppelin Contracts](https://docs.openzeppelin.com/contracts/)
+- [Documentação do Foundry](https://book.getfoundry.sh/)
+- [Documentação do Solidity](https://docs.soliditylang.org/)
+- [Recursos para Desenvolvedores Ethereum](https://ethereum.org/developers/)
+- [Contratos OpenZeppelin](https://docs.openzeppelin.com/contracts/)
 
-## 📄 License
+## 📄 Licença
 
-This project is unlicensed (UNLICENSED). See the license file for details.
+Este projeto está sem licença (UNLICENSED). Consulte o arquivo de licença para mais detalhes.
 
-## ⚠️ Warnings
+## ⚠️ Avisos
 
-- **Security**: This contract has been designed for specific use cases. Perform a security audit before using in production.
-- **Gas Costs**: Consider gas costs when storing documents. Each transaction consumes gas.
-- **Scalability**: For large volumes of documents, consider using events and off-chain storage.
+- **Segurança**: Este contrato foi projetado para casos de uso específicos. Realize uma auditoria de segurança antes de usar em produção.
+- **Custos de Gas**: Considere os custos de gas ao armazenar documentos. Cada transação consome gas.
+- **Escalabilidade**: Para grandes volumes de documentos, considere usar eventos e armazenamento off-chain.
 
 ---
 
-**Developed with Foundry for the blockchain community**
+**Desenvolvido com Foundry para a comunidade blockchain**
 
-For questions or issues, open an issue in the repository.
+Para perguntas ou problemas, abra um issue no repositório.

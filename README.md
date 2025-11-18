@@ -1,518 +1,526 @@
-# FileHashStorage - Sistema de Verificación de Documentos en Blockchain
+# FileHashStorage - Blockchain Document Verification System
 
 ![Blockchain](https://img.shields.io/badge/Blockchain-Ethereum-blue)
 ![Solidity](https://img.shields.io/badge/Solidity-^0.8.13-orange)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+<div align="center">
+
+**🌐 Language / Idioma / Idioma**
+
+[![English](https://img.shields.io/badge/English-🇬🇧-blue)](README.md) [![Spanish](https://img.shields.io/badge/Spanish-🇪🇸-red)](README.es.md) [![Portuguese](https://img.shields.io/badge/Portuguese-🇵🇹-green)](README.pt.md)
+
+</div>
+
 <p align="center">
-  <img src="https://github.com/alucart2005/documentSighHash/blob/main/dapp/public/Capture.jpg?raw=true" alt="Descripción">
+  <img src="https://github.com/alucart2005/documentSighHash/blob/main/dapp/public/Capture.jpg?raw=true" alt="FileHashStorage dApp">
 </p>
 
-## 📋 Descripción del Proyecto
+## 📋 Project Description
 
-**FileHashStorage** es una aplicación descentralizada (dApp) completa que permite almacenar y verificar la autenticidad de documentos utilizando la tecnología blockchain de Ethereum. El sistema combina smart contracts desarrollados con Foundry y una interfaz web moderna construida con Next.js.
+**FileHashStorage** is a complete decentralized application (dApp) that enables storing and verifying document authenticity using Ethereum blockchain technology. The system combines smart contracts developed with Foundry and a modern web interface built with Next.js.
 
-### ¿Qué problema resuelve?
+### What Problem Does It Solve?
 
-En el mundo actual, verificar la autenticidad de documentos digitales es un desafío constante. Este proyecto ofrece una solución blockchain que permite:
+In today's world, verifying the authenticity of digital documents is a constant challenge. This project offers a blockchain solution that enables:
 
-- **Inmutabilidad**: Una vez registrado un documento, su hash no puede ser modificado
-- **Trazabilidad**: Cada documento incluye timestamp y firma digital verificable
-- **Transparencia**: Cualquier persona puede verificar la autenticidad de un documento
-- **Descentralización**: No depende de una autoridad central
+- **Immutability**: Once a document is registered, its hash cannot be modified
+- **Traceability**: Each document includes a timestamp and verifiable digital signature
+- **Transparency**: Anyone can verify the authenticity of a document
+- **Decentralization**: Does not depend on a central authority
 
-### Casos de Uso Reales
+### Real-World Use Cases
 
-1. **Verificación de Títulos Académicos**: Universidades pueden registrar los hashes de diplomas para que empleadores verifiquen su autenticidad
-2. **Certificación de Documentos Legales**: Notarios pueden registrar contratos y documentos legales con timestamp inmutable
-3. **Protección de Propiedad Intelectual**: Artistas y creadores pueden registrar sus obras para demostrar autoría
-4. **Auditoría de Documentos Corporativos**: Empresas pueden mantener un registro inmutable de documentos importantes
-5. **Verificación de Identidad**: Documentos de identidad pueden ser verificados sin revelar información sensible
+1. **Academic Credential Verification**: Universities can register diploma hashes for employers to verify authenticity
+2. **Legal Document Certification**: Notaries can register contracts and legal documents with immutable timestamps
+3. **Intellectual Property Protection**: Artists and creators can register their works to prove authorship
+4. **Corporate Document Auditing**: Companies can maintain an immutable record of important documents
+5. **Identity Verification**: Identity documents can be verified without revealing sensitive information
 
-## 🏗️ Arquitectura del Proyecto
+## 🏗️ Project Architecture
 
-El proyecto está estructurado en dos componentes principales:
+The project is structured into two main components:
 
 ```
 alucart2005/
 ├── sc/                    # Smart Contracts (Foundry)
-│   ├── src/              # Contratos Solidity
-│   ├── test/             # Tests de contratos
-│   └── script/           # Scripts de despliegue
-└── dapp/                  # Aplicación Frontend (Next.js)
-    ├── app/              # Páginas y rutas
-    ├── components/       # Componentes React
-    ├── contexts/         # Contextos de React
-    └── lib/              # Utilidades y configuración
+│   ├── src/              # Solidity contracts
+│   ├── test/             # Contract tests
+│   └── script/           # Deployment scripts
+└── dapp/                  # Frontend Application (Next.js)
+    ├── app/              # Pages and routes
+    ├── components/       # React components
+    ├── contexts/         # React contexts
+    └── lib/              # Utilities and configuration
 ```
 
-## 🚀 Instalación
+## 🚀 Installation
 
-### Prerrequisitos
+### Prerequisites
 
-Antes de comenzar, asegúrate de tener instalado:
+Before starting, ensure you have installed:
 
-- **Node.js** (v16 o superior) - [Descargar Node.js](https://nodejs.org/)
-- **Foundry** - Framework para desarrollo de smart contracts
-- **Git** - Control de versiones
-- **Anvil** (incluido con Foundry) - Red local de Ethereum para desarrollo
+- **Node.js** (v16 or higher) - [Download Node.js](https://nodejs.org/)
+- **Foundry** - Framework for smart contract development
+- **Git** - Version control
+- **Anvil** (included with Foundry) - Local Ethereum network for development
 
-### Instalación de Foundry
+### Foundry Installation
 
-Si aún no tienes Foundry instalado, ejecuta:
+If you don't have Foundry installed yet, run:
 
 ```bash
 curl -L https://foundry.paradigm.xyz | bash
 foundryup
 ```
 
-Para Windows (usando Git Bash o PowerShell):
+For Windows (using Git Bash or PowerShell):
 
 ```bash
-# Descargar e instalar desde: https://github.com/foundry-rs/foundry/releases
-# O usar chocolatey:
+# Download and install from: https://github.com/foundry-rs/foundry/releases
+# Or use chocolatey:
 choco install foundry
 ```
 
-### Configuración del Proyecto
+### Project Setup
 
-#### 1. Clonar el Repositorio
+#### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/alucart2005/alucart2005.git
 cd alucart2005
 ```
 
-#### 2. Configurar Smart Contracts
+#### 2. Configure Smart Contracts
 
 ```bash
-# Navegar al directorio de contratos
+# Navigate to contracts directory
 cd sc
 
-# Instalar dependencias (forge-std)
+# Install dependencies (forge-std)
 forge install
 
-# Compilar los contratos
+# Compile contracts
 forge build
 
-# Ejecutar los tests
+# Run tests
 forge test
 ```
 
-#### 3. Configurar la Aplicación Frontend
+#### 3. Configure Frontend Application
 
 ```bash
-# Navegar al directorio de la dApp
+# Navigate to dApp directory
 cd ../dapp
 
-# Instalar dependencias de Node.js
+# Install Node.js dependencies
 npm install
 
-# Verificar que Anvil esté corriendo
+# Verify Anvil is running
 npm run check-anvil
 ```
 
-## ⚙️ Configuración
+## ⚙️ Configuration
 
-### Configuración del Entorno de Desarrollo
+### Development Environment Setup
 
-#### 1. Iniciar Anvil (Red Local de Ethereum)
+#### 1. Start Anvil (Local Ethereum Network)
 
-En una terminal separada, inicia Anvil:
+In a separate terminal, start Anvil:
 
 ```bash
 anvil
 ```
 
-Esto iniciará una blockchain local en `http://localhost:8545` con 10 cuentas prefinanciadas para pruebas.
+This will start a local blockchain at `http://localhost:8545` with 10 pre-funded accounts for testing.
 
-#### 2. Desplegar el Contrato
+#### 2. Deploy the Contract
 
-El contrato se despliega automáticamente cuando inicias la aplicación, pero también puedes hacerlo manualmente:
+The contract is automatically deployed when you start the application, but you can also do it manually:
 
 ```bash
 cd sc
 forge script script/FileHashStorage.s.sol:FileHashStorageScript --rpc-url http://localhost:8545 --broadcast
 ```
 
-#### 3. Configurar la Dirección del Contrato
+#### 3. Configure Contract Address
 
-Después del despliegue, copia la dirección del contrato y actualiza el archivo de configuración:
+After deployment, copy the contract address and update the configuration file:
 
 ```bash
-# Editar dapp/config/contract-config.json
+# Edit dapp/config/contract-config.json
 {
-  "address": "0xTU_DIRECCION_DEL_CONTRATO_AQUI",
+  "address": "0xYOUR_CONTRACT_ADDRESS_HERE",
   "chainId": 31337
 }
 ```
 
-### Variables de Entorno (Opcional)
+### Environment Variables (Optional)
 
-Puedes crear un archivo `.env.local` en el directorio `dapp/` para configuraciones adicionales:
+You can create a `.env.local` file in the `dapp/` directory for additional configuration:
 
 ```env
 NEXT_PUBLIC_RPC_URL=http://localhost:8545
 NEXT_PUBLIC_CHAIN_ID=31337
 ```
 
-## 💻 Uso
+## 💻 Usage
 
-### Iniciar la Aplicación
+### Start the Application
 
 ```bash
-# Desde el directorio dapp/
+# From the dapp/ directory
 npm run dev
 ```
 
-La aplicación estará disponible en [http://localhost:3000](http://localhost:3000)
+The application will be available at [http://localhost:3000](http://localhost:3000)
 
-### Flujo de Trabajo Básico
+### Basic Workflow
 
-1. **Conectar Wallet**: Conecta tu wallet de MetaMask o usa una de las cuentas de Anvil
-2. **Subir Documento**: Selecciona un archivo y calcula su hash
-3. **Firmar y Registrar**: Firma el hash con tu wallet y regístralo en la blockchain
-4. **Verificar Documento**: Verifica la autenticidad de cualquier documento registrado
+1. **Connect Wallet**: Connect your MetaMask wallet or use one of Anvil's accounts
+2. **Upload Document**: Select a file and calculate its hash
+3. **Sign and Register**: Sign the hash with your wallet and register it on the blockchain
+4. **Verify Document**: Verify the authenticity of any registered document
 
-## 📚 Ejemplos de Uso en Escenarios Reales
+## 📚 Real-World Usage Examples
 
-### Ejemplo 1: Registro de un Contrato de Trabajo
+### Example 1: Employment Contract Registration
 
-**Situación**: Un empleador necesita registrar un contrato de trabajo para demostrar su existencia en una fecha específica.
+**Situation**: An employer needs to register an employment contract to prove its existence on a specific date.
 
-**Pasos**:
+**Steps**:
 
-1. **Preparar el documento**:
-
-   ```bash
-   # El documento "contrato_trabajo_2024.pdf" está listo para ser registrado
-   ```
-
-2. **Desde la interfaz web**:
-
-   - Conecta tu wallet (cuenta del empleador)
-   - Sube el archivo `contrato_trabajo_2024.pdf`
-   - El sistema calcula automáticamente el hash SHA-256
-   - Firma el hash con tu wallet
-   - Confirma la transacción para registrar el documento
-
-3. **Verificación posterior**:
-   - Cualquier persona puede verificar el documento subiendo el mismo archivo
-   - El sistema comparará el hash y mostrará:
-     - ✅ Si el documento es auténtico
-     - 📅 Fecha y hora de registro
-     - 👤 Dirección de la wallet que lo registró
-
-**Beneficio**: El empleador tiene prueba inmutable de que el contrato existía en una fecha específica, útil en disputas laborales.
-
-### Ejemplo 2: Certificación de un Diploma Universitario
-
-**Situación**: Una universidad quiere emitir diplomas verificables en blockchain.
-
-**Proceso**:
-
-1. **La universidad registra el diploma**:
-
-   ```javascript
-   // Hash del diploma: 0x7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504ded97730
-   // Timestamp: 1704067200 (1 de enero de 2024)
-   // Firma: Firma criptográfica de la universidad
-   ```
-
-2. **El graduado verifica su diploma**:
-
-   - El graduado sube su archivo PDF del diploma
-   - El sistema verifica que el hash coincide
-   - Muestra la información de registro (fecha, institución)
-
-3. **Un empleador verifica la autenticidad**:
-   - El empleador recibe el diploma del candidato
-   - Lo sube al sistema de verificación
-   - Obtiene confirmación inmediata de autenticidad
-
-**Beneficio**: Elimina la necesidad de contactar a la universidad para verificar diplomas, ahorrando tiempo y recursos.
-
-### Ejemplo 3: Protección de Propiedad Intelectual
-
-**Situación**: Un fotógrafo quiere proteger sus fotografías antes de publicarlas.
-
-**Implementación**:
-
-1. **Registro de la obra original**:
+1. **Prepare the document**:
 
    ```bash
-   # El fotógrafo registra el hash de "foto_original.jpg"
-   # Esto crea un registro inmutable de que la foto existía en una fecha específica
+   # The document "employment_contract_2024.pdf" is ready to be registered
    ```
 
-2. **En caso de plagio**:
-   - El fotógrafo puede demostrar que registró la obra antes
-   - El timestamp en blockchain es prueba legal de autoría
-   - La firma criptográfica confirma la identidad del autor
+2. **From the web interface**:
 
-**Beneficio**: Prueba legal de autoría sin necesidad de registros costosos en oficinas de patentes.
+   - Connect your wallet (employer's account)
+   - Upload the `employment_contract_2024.pdf` file
+   - The system automatically calculates the SHA-256 hash
+   - Sign the hash with your wallet
+   - Confirm the transaction to register the document
 
-### Ejemplo 4: Auditoría de Documentos Corporativos
+3. **Subsequent verification**:
+   - Anyone can verify the document by uploading the same file
+   - The system will compare the hash and display:
+     - ✅ If the document is authentic
+     - 📅 Registration date and time
+     - 👤 Wallet address that registered it
 
-**Situación**: Una empresa necesita mantener un registro auditado de documentos financieros.
+**Benefit**: The employer has immutable proof that the contract existed on a specific date, useful in labor disputes.
 
-**Flujo**:
+### Example 2: University Diploma Certification
 
-1. **Registro mensual de estados financieros**:
+**Situation**: A university wants to issue blockchain-verifiable diplomas.
+
+**Process**:
+
+1. **University registers the diploma**:
 
    ```javascript
-   // Cada mes, el CFO registra:
-   // - Balance general
-   // - Estado de resultados
-   // - Flujo de caja
+   // Diploma hash: 0x7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504ded97730
+   // Timestamp: 1704067200 (January 1, 2024)
+   // Signature: University's cryptographic signature
    ```
 
-2. **Verificación por auditores**:
+2. **Graduate verifies their diploma**:
 
-   - Los auditores pueden verificar que los documentos no han sido alterados
-   - El timestamp garantiza la secuencia temporal
-   - La firma del CFO es verificable
+   - The graduate uploads their diploma PDF file
+   - The system verifies that the hash matches
+   - Shows registration information (date, institution)
 
-3. **Cumplimiento regulatorio**:
-   - Las autoridades pueden verificar documentos sin acceso a sistemas internos
-   - Transparencia sin comprometer la privacidad
+3. **Employer verifies authenticity**:
+   - The employer receives the candidate's diploma
+   - Uploads it to the verification system
+   - Gets immediate confirmation of authenticity
 
-**Beneficio**: Cumplimiento regulatorio mejorado y procesos de auditoría más eficientes.
+**Benefit**: Eliminates the need to contact the university to verify diplomas, saving time and resources.
 
-### Ejemplo 5: Verificación de Documentos de Identidad
+### Example 3: Intellectual Property Protection
 
-**Situación**: Una institución necesita verificar documentos de identidad sin almacenar datos personales.
+**Situation**: A photographer wants to protect their photographs before publishing them.
 
-**Solución**:
+**Implementation**:
 
-1. **El usuario registra su documento**:
+1. **Original work registration**:
 
-   - Sube una copia de su documento de identidad
-   - El sistema registra solo el hash (no los datos personales)
-   - El usuario firma con su wallet
+   ```bash
+   # The photographer registers the hash of "original_photo.jpg"
+   # This creates an immutable record that the photo existed on a specific date
+   ```
 
-2. **Verificación por la institución**:
-   - La institución recibe el documento del usuario
-   - Calcula el hash y lo verifica en blockchain
-   - Confirma autenticidad sin almacenar datos sensibles
+2. **In case of plagiarism**:
+   - The photographer can prove they registered the work earlier
+   - The blockchain timestamp is legal proof of authorship
+   - The cryptographic signature confirms the author's identity
 
-**Beneficio**: Privacidad mejorada (solo se almacena el hash) y verificación rápida.
+**Benefit**: Legal proof of authorship without the need for expensive patent office registrations.
+
+### Example 4: Corporate Document Auditing
+
+**Situation**: A company needs to maintain an audited record of financial documents.
+
+**Flow**:
+
+1. **Monthly financial statement registration**:
+
+   ```javascript
+   // Each month, the CFO registers:
+   // - Balance sheet
+   // - Income statement
+   // - Cash flow statement
+   ```
+
+2. **Auditor verification**:
+
+   - Auditors can verify that documents have not been altered
+   - The timestamp guarantees temporal sequence
+   - The CFO's signature is verifiable
+
+3. **Regulatory compliance**:
+   - Authorities can verify documents without access to internal systems
+   - Transparency without compromising privacy
+
+**Benefit**: Improved regulatory compliance and more efficient auditing processes.
+
+### Example 5: Identity Document Verification
+
+**Situation**: An institution needs to verify identity documents without storing personal data.
+
+**Solution**:
+
+1. **User registers their document**:
+
+   - Uploads a copy of their identity document
+   - The system registers only the hash (not personal data)
+   - The user signs with their wallet
+
+2. **Institution verification**:
+   - The institution receives the user's document
+   - Calculates the hash and verifies it on the blockchain
+   - Confirms authenticity without storing sensitive data
+
+**Benefit**: Improved privacy (only hash is stored) and fast verification.
 
 ## 🧪 Testing
 
-### Ejecutar Tests de Smart Contracts
+### Run Smart Contract Tests
 
 ```bash
 cd sc
 forge test
 ```
 
-### Ejecutar Tests con Verbosidad
+### Run Tests with Verbosity
 
 ```bash
-forge test -vvv  # Muestra logs detallados
+forge test -vvv  # Shows detailed logs
 ```
 
-### Ejecutar un Test Específico
+### Run a Specific Test
 
 ```bash
 forge test --match-test test_StoreDocumentHash
 ```
 
-## 🔧 Comandos Útiles
+## 🔧 Useful Commands
 
 ### Smart Contracts
 
 ```bash
-# Compilar contratos
+# Compile contracts
 forge build
 
-# Ejecutar tests
+# Run tests
 forge test
 
-# Desplegar a red local
+# Deploy to local network
 forge script script/FileHashStorage.s.sol:FileHashStorageScript --rpc-url http://localhost:8545 --broadcast
 
-# Verificar contrato en un explorador de bloques
-forge verify-contract <DIRECCION> FileHashStorage --chain-id 1
+# Verify contract on blockchain explorer
+forge verify-contract <ADDRESS> FileHashStorage --chain-id 1
 ```
 
 ### Frontend
 
 ```bash
-# Desarrollo
+# Development
 npm run dev
 
-# Construir para producción
+# Build for production
 npm run build
 
-# Iniciar servidor de producción
+# Start production server
 npm start
 
-# Verificar que Anvil esté corriendo
+# Check if Anvil is running
 npm run check-anvil
 
-# Desplegar contrato manualmente
+# Deploy contract manually
 npm run deploy
 ```
 
-## 📖 Documentación de la API del Contrato
+## 📖 Contract API Documentation
 
-### Funciones Principales
+### Main Functions
 
 #### `storeDocumentHash(bytes32 hash, uint256 timestamp, bytes calldata signature)`
 
-Almacena el hash de un documento con su timestamp y firma.
+Stores a document hash with its timestamp and signature.
 
-**Parámetros**:
+**Parameters**:
 
-- `hash`: Hash del documento (SHA-256, Keccak-256, etc.)
-- `timestamp`: Fecha de registro (Unix timestamp)
-- `signature`: Firma ECDSA del hash (65 bytes)
+- `hash`: Document hash (SHA-256, Keccak-256, etc.)
+- `timestamp`: Registration date (Unix timestamp)
+- `signature`: ECDSA signature of the hash (65 bytes)
 
-**Retorna**: `bool` - `true` si el almacenamiento fue exitoso
+**Returns**: `bool` - `true` if storage was successful
 
-**Ejemplo de uso**:
+**Usage example**:
 
 ```solidity
-bytes32 docHash = keccak256("mi_documento.pdf");
+bytes32 docHash = keccak256("my_document.pdf");
 uint256 timestamp = block.timestamp;
-bytes memory signature = /* firma del hash */;
+bytes memory signature = /* hash signature */;
 
 fileHashStorage.storeDocumentHash(docHash, timestamp, signature);
 ```
 
 #### `verifyDocument(bytes32 hash, address signer, bytes calldata signature)`
 
-Verifica que una firma corresponde a un documento y signer específicos.
+Verifies that a signature corresponds to a specific document and signer.
 
-**Parámetros**:
+**Parameters**:
 
-- `hash`: Hash del documento a verificar
-- `signer`: Dirección del signer esperado
-- `signature`: Firma a verificar
+- `hash`: Document hash to verify
+- `signer`: Expected signer address
+- `signature`: Signature to verify
 
-**Retorna**: `bool` - `true` si la firma es válida
+**Returns**: `bool` - `true` if the signature is valid
 
 #### `getDocumentInfo(bytes32 hash)`
 
-Obtiene toda la información de un documento registrado.
+Gets all information from a registered document.
 
-**Retorna**:
+**Returns**:
 
-- `bytes32`: Hash del documento
-- `uint256`: Timestamp de registro
-- `address`: Dirección del signer
-- `bytes`: Firma del documento
+- `bytes32`: Document hash
+- `uint256`: Registration timestamp
+- `address`: Signer address
+- `bytes`: Document signature
 
 #### `isDocumentStored(bytes32 hash)`
 
-Verifica si un documento existe en el sistema.
+Checks if a document exists in the system.
 
-**Retorna**: `bool` - `true` si el documento está registrado
+**Returns**: `bool` - `true` if the document is registered
 
-### Eventos
+### Events
 
 #### `DocumentStored(bytes32 indexed hash, address indexed signer, uint256 timestamp)`
 
-Emitido cuando un documento es registrado exitosamente.
+Emitted when a document is successfully registered.
 
-## 🤝 Contribución
+## 🤝 Contributing
 
-¡Las contribuciones son bienvenidas! Este proyecto es parte de materiales de aprendizaje de Codecrypto Academy.
+Contributions are welcome! This project is part of Codecrypto Academy learning materials.
 
-### Cómo Contribuir
+### How to Contribute
 
-1. **Fork el repositorio**
+1. **Fork the repository**
 
    ```bash
    git clone https://github.com/alucart2005/alucart2005.git
    ```
 
-2. **Crea una rama para tu feature**
+2. **Create a feature branch**
 
    ```bash
-   git checkout -b feature/mi-nueva-funcionalidad
+   git checkout -b feature/my-new-feature
    ```
 
-3. **Realiza tus cambios**
+3. **Make your changes**
 
-   - Sigue las mejores prácticas de Solidity
-   - Escribe tests para nuevas funcionalidades
-   - Actualiza la documentación
+   - Follow Solidity best practices
+   - Write tests for new features
+   - Update documentation
 
-4. **Ejecuta los tests**
+4. **Run tests**
 
    ```bash
    cd sc && forge test
    cd ../dapp && npm run lint
    ```
 
-5. **Commit tus cambios**
+5. **Commit your changes**
 
    ```bash
-   git commit -m "feat: agregar nueva funcionalidad de verificación"
+   git commit -m "feat: add new verification feature"
    ```
 
-6. **Push a tu rama**
+6. **Push to your branch**
 
    ```bash
-   git push origin feature/mi-nueva-funcionalidad
+   git push origin feature/my-new-feature
    ```
 
-7. **Abre un Pull Request**
+7. **Open a Pull Request**
 
-### Guías de Desarrollo
+### Development Guidelines
 
-- **Solidity**: Sigue las [mejores prácticas de Solidity](https://docs.soliditylang.org/en/latest/style-guide.html)
-- **Testing**: Escribe tests comprehensivos para todas las nuevas funcionalidades
-- **Documentación**: Actualiza la documentación para cualquier cambio en la API
-- **Código Limpio**: Mantén el código legible y bien comentado
+- **Solidity**: Follow [Solidity best practices](https://docs.soliditylang.org/en/latest/style-guide.html)
+- **Testing**: Write comprehensive tests for all new features
+- **Documentation**: Update documentation for any API changes
+- **Clean Code**: Keep code readable and well-commented
 
-### Estructura de Commits
+### Commit Structure
 
-Usa mensajes de commit descriptivos siguiendo el formato:
+Use descriptive commit messages following the format:
 
 ```
-tipo: descripción breve
+type: brief description
 
-Descripción detallada (opcional)
+Detailed description (optional)
 ```
 
-Tipos comunes:
+Common types:
 
-- `feat`: Nueva funcionalidad
-- `fix`: Corrección de bug
-- `docs`: Cambios en documentación
-- `test`: Agregar o modificar tests
-- `refactor`: Refactorización de código
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `test`: Add or modify tests
+- `refactor`: Code refactoring
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Enlaces Útiles
+## 🔗 Useful Links
 
-- [Documentación de Foundry](https://book.getfoundry.sh/)
-- [Documentación de Next.js](https://nextjs.org/docs)
-- [Documentación de Solidity](https://docs.soliditylang.org/)
+- [Foundry Documentation](https://book.getfoundry.sh/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Solidity Documentation](https://docs.soliditylang.org/)
 - [Ethereum Developer Resources](https://ethereum.org/developers/)
 
-## 📞 Contacto
+## 📞 Contact
 
 - **GitHub**: [@alucart2005](https://github.com/alucart2005)
-- **Proyecto**: Parte de Codecrypto Academy
+- **Project**: Part of Codecrypto Academy
 
-## 🙏 Agradecimientos
+## 🙏 Acknowledgments
 
-Este proyecto utiliza las siguientes tecnologías y herramientas:
+This project uses the following technologies and tools:
 
-- [Foundry](https://github.com/foundry-rs/foundry) - Framework de desarrollo de smart contracts
-- [Next.js](https://nextjs.org/) - Framework de React para producción
-- [Ethers.js](https://ethers.org/) - Biblioteca para interactuar con Ethereum
-- [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil) - Cliente de Ethereum para desarrollo local
+- [Foundry](https://github.com/foundry-rs/foundry) - Smart contract development framework
+- [Next.js](https://nextjs.org/) - React framework for production
+- [Ethers.js](https://ethers.org/) - Library for interacting with Ethereum
+- [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil) - Ethereum client for local development
 
 ---
 
-**Nota**: Este proyecto está diseñado para fines educativos y de práctica. Para uso en producción, asegúrate de realizar auditorías de seguridad completas y considerar las implicaciones legales y regulatorias.
+**Note**: This project is designed for educational and practice purposes. For production use, ensure you perform complete security audits and consider legal and regulatory implications.
